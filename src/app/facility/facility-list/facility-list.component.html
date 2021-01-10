@@ -18,13 +18,13 @@
                     <td>{{i + 1}}</td>
                     <td>{{facility.facilityName |uppercase}}</td>
                     <td>
-                        <button (click)="onEdit(facility.facilityId,facility.facilityName)" class="btn btn-warning btn-sm">Edit</button>
+                        <button (click)="onEdit(facility)" class="btn btn-warning btn-sm">Edit</button>
                         <button (click)="onDelete(facility.facilityId)" style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button (click)="onclick()" class="btn btn-warning btn-sm">toaster test</button>
+
 
     </div>
     <!-- <div class="card-footer"></div> -->

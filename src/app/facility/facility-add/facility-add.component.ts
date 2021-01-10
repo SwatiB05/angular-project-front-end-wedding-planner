@@ -21,11 +21,10 @@ facilityName=''
     private toastr: ToastrService) { }
 
 
-
-
-
   ngOnInit(): void {
   }
+
+  
   onSave(){
     if (this.facilityName.length==0) {
       this.toastr.warning('please enter title')

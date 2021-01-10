@@ -1,3 +1,5 @@
+import { FacilityEditComponent } from './../facility-edit/facility-edit.component';
+import { Facilities } from './../facility.model';
 import { ToastrService } from 'ngx-toastr';
 import { FacilityAddComponent } from './../facility-add/facility-add.component';
 import { FacilityService } from './../facility.service';
@@ -13,6 +15,7 @@ import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class FacilityListComponent implements OnInit {
   facilities=[]
+ 
   message=''
   constructor(private service:FacilityService,
     private router:Router,
@@ -45,30 +48,30 @@ onAdd() {
   })
 }
 
-  onEdit(id,name){
-    this.service.editFacility(id,name).subscribe(
-      response => {
-        console.log(response);
-        this.router.navigate(['facilities/:id']);
-       // this.message = 'The Facility updated successfully!';
-      },
-      error => {
-        console.log(error);
-      })
+  onEdit(facility:Facilities){
+    // this.service.editFacility(id,name).subscribe(
+    //   response => {
+    //     console.log(response);
+    //     this.router.navigate(['facilities/:id']);
+    //    // this.message = 'The Facility updated successfully!';
+    //   },
+    //   error => {
+    //     console.log(error);
+    //   })
 
 
 
-      // const modalRef = this.modalService.open(FacilityEditComponent)
+      const modalRef = this.modalService.open(FacilityEditComponent)
 
-      // // get the edit comopnent's reference
-      // const component = modalRef.componentInstance as FacilityEditComponent
+      // get the edit comopnent's reference
+      const component = modalRef.componentInstance as FacilityEditComponent
   
-      // // pre-fill the title and description
-      // component.facility=facilities(id,name)
-      // modalRef.result.finally(() => {
-      //   // reload the categories
-      //   this.onPageLoad()
-      // })
+      // pre-fill the title and description
+      component.facility=facility
+      modalRef.result.finally(() => {
+        // reload the categories
+        this.onPageLoad()
+      })
   }
 
 
@@ -86,9 +89,7 @@ onAdd() {
   }
 
 
-  onclick(){
-    this.toastr.warning('this is a warning')
-  }
+
 }
 
 
