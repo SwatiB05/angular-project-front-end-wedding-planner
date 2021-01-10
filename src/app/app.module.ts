@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 // import { FacilityService } from './facility.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -10,6 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component'
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +27,14 @@ import { HomeComponent } from './home/home.component'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
-    
+    RouterModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
 
   ],
   exports:[AppRoutingModule,RouterModule],
   //add services
-  providers: [],
+  providers: [ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

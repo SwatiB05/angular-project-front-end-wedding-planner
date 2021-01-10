@@ -3,9 +3,9 @@
         <h2>Facility List</h2>
     </div>
     <div class="card-body">
-        <button style="margin-bottom: 10px ;margin-right: 10px;" class="btn bt-sm btn-success float-right">Add</button>
+        <button (click)="onAdd()" style="margin-bottom: 20px;" class="btn btn-success float-right">Add</button>
         <h5 *ngIf="facilities?.length==0"> &nbsp; There is no Facility at the moment. Please add one using 'Add' button.</h5>
-        <table *ngIf="facilities?.length>0" class="table table-striped table-bordered">
+        <table *ngIf="facilities?.length>0" class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th style="width: 50px;">No</th>
@@ -24,6 +24,8 @@
                 </tr>
             </tbody>
         </table>
+        <button (click)="onclick()" class="btn btn-warning btn-sm">toaster test</button>
+
     </div>
     <!-- <div class="card-footer"></div> -->
 </div>

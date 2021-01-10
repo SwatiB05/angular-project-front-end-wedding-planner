@@ -25,7 +25,7 @@ export class FacilityService {
 return this.http.put(`${baseUrl}/${id}`, title);
   }
   deleteFacility(id:number):Observable<any>{
-return this.http.delete(`${baseUrl}/${id}`, { responseType: 'text' })
+    return this.http.delete(`${baseUrl}/${id}`, { responseType: 'text' })
   }
 
 

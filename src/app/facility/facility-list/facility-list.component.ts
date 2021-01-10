@@ -1,6 +1,10 @@
+import { ToastrService } from 'ngx-toastr';
+import { FacilityAddComponent } from './../facility-add/facility-add.component';
 import { FacilityService } from './../facility.service';
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-facility-list',
@@ -10,7 +14,11 @@ import {Router, ActivatedRoute} from '@angular/router';
 export class FacilityListComponent implements OnInit {
   facilities=[]
   message=''
-  constructor(private service:FacilityService,private router:Router, private route:ActivatedRoute,) { }
+  constructor(private service:FacilityService,
+    private router:Router,
+     private route:ActivatedRoute,
+     private modalService: NgbModal,
+     private toastr: ToastrService,) { }
 
   ngOnInit(): void {
     this.onPageLoad()
@@ -27,16 +35,40 @@ this.service.getFacilities().subscribe(
       })
 
 }
+
+
+onAdd() {
+  const modalRef = this.modalService.open(FacilityAddComponent)
+  modalRef.result.finally(() => {
+    // reload the categories
+    this.onPageLoad()
+  })
+}
+
   onEdit(id,name){
     this.service.editFacility(id,name).subscribe(
       response => {
         console.log(response);
-        this.router.navigate(['http://localhost:8080/admin/facilities'],{relativeTo:this.route});
-        this.message = 'The Facility updated successfully!';
+        this.router.navigate(['facilities/:id']);
+       // this.message = 'The Facility updated successfully!';
       },
       error => {
         console.log(error);
       })
+
+
+
+      // const modalRef = this.modalService.open(FacilityEditComponent)
+
+      // // get the edit comopnent's reference
+      // const component = modalRef.componentInstance as FacilityEditComponent
+  
+      // // pre-fill the title and description
+      // component.facility=facilities(id,name)
+      // modalRef.result.finally(() => {
+      //   // reload the categories
+      //   this.onPageLoad()
+      // })
   }
 
 
@@ -44,14 +76,19 @@ this.service.getFacilities().subscribe(
     this.service.deleteFacility(id).subscribe(
       response => {
         console.log(response);
-        this.router.navigate(['http://localhost:8080/admin/facilities'],{relativeTo:this.route});
-        this.message = 'The Facility successfully Deleted!';
+        this.message = response
+        this.toastr.success(this.message)
+        this.onPageLoad()
       },
       error => {
         console.log(error);
       })
   }
 
+
+  onclick(){
+    this.toastr.warning('this is a warning')
+  }
 }
 
 
