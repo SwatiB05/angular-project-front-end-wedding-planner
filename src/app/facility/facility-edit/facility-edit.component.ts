@@ -25,8 +25,13 @@ export class FacilityEditComponent implements OnInit {
     if (this.facility.facilityName.length==0) {
       this.toastr.warning('please enter title')
     } else {
-this.service.editFacility(this.facility.facilityId,this.facility.facilityName).subscribe(res=>{
+this.service.editFacility(this.facility).subscribe(res=>{
+  console.log(res)
+  this.toastr.success('SuccessFully Updated')
   this.modal.dismiss('ok')
+},
+error=>{
+  this.toastr.error('Facility Invalid')
 })
     }
   }

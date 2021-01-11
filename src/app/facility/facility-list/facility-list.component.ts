@@ -49,18 +49,6 @@ onAdd() {
 }
 
   onEdit(facility:Facilities){
-    // this.service.editFacility(id,name).subscribe(
-    //   response => {
-    //     console.log(response);
-    //     this.router.navigate(['facilities/:id']);
-    //    // this.message = 'The Facility updated successfully!';
-    //   },
-    //   error => {
-    //     console.log(error);
-    //   })
-
-
-
       const modalRef = this.modalService.open(FacilityEditComponent)
 
       // get the edit comopnent's reference
@@ -85,6 +73,7 @@ onAdd() {
       },
       error => {
         console.log(error);
+        this.toastr.error('Error While Deleting..')
       })
   }
 

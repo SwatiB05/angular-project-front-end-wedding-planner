@@ -1,5 +1,5 @@
 import { browser } from 'protractor';
-import { Facilities } from './facility.model';
+import { Facilities,Facility } from './facility.model';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -13,7 +13,7 @@ const baseUrl = 'http://localhost:8080/admin/facilities';
   providedIn: 'root'
 })
 export class FacilityService {
-
+f:Facilities
   constructor(private http:HttpClient) { }
 
   getFacilities() {
@@ -21,15 +21,21 @@ export class FacilityService {
     return this.http.get<Facilities[]>(baseUrl)
     }
 
-  editFacility(id:number,title:string):Observable<Object>{
-return this.http.put(`${baseUrl}/${id}`, title);
-  }
+//   editFacility(f:Facilities):Observable<Object>{
+// return this.http.put(`${baseUrl}/${f.facilityId}`,JSON.stringify(f));
+//   }
+  editFacility(f:Facility):Observable<Object>{
+    return this.http.put(`${baseUrl}/${f.facilityId}`,f,{responseType: 'text'});
+   
+      }
+      
+
   deleteFacility(id:number):Observable<any>{
     return this.http.delete(`${baseUrl}/${id}`, { responseType: 'text' })
   }
 
 
-  createFacility(title:string){
-    return this.http.post<Facilities>(baseUrl,title)
+  createFacility(f:Facility){
+    return this.http.post<Facilities>(`${baseUrl}/create`,f,{ responseType: 'text' as 'json'  })
   }
 }

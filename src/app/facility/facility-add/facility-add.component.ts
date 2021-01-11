@@ -1,3 +1,4 @@
+import { Facilities, Facility } from './../facility.model';
 
 import { FacilityService } from './../facility.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FacilityAddComponent implements OnInit {
 
-facilityName=''
+  facility:Facility=new Facility()
+  message=''
 
   constructor(private modal: NgbActiveModal,
     private service:FacilityService,
@@ -26,14 +28,17 @@ facilityName=''
 
   
   onSave(){
-    if (this.facilityName.length==0) {
+    if (!this.facility.facilityName) {
       this.toastr.warning('please enter title')
     // alert('please enter titles')
     } else {
-     
-      this.service.createFacility(this.facilityName)
+      this.service.createFacility(this.facility)
         .subscribe(response => {
-          this.modal.dismiss('ok')
+          this.toastr.success("Facility Added SuccessFully")
+          this.modal.dismiss('ok')       
+        },
+        error=>{
+this.toastr.error('Cannot add Duplicate Facility')
         })
     }
   }
