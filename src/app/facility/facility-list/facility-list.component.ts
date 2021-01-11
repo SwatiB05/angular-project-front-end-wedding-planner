@@ -4,7 +4,6 @@ import { ToastrService } from 'ngx-toastr';
 import { FacilityAddComponent } from './../facility-add/facility-add.component';
 import { FacilityService } from './../facility.service';
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
 import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -18,10 +17,8 @@ export class FacilityListComponent implements OnInit {
  
   message=''
   constructor(private service:FacilityService,
-    private router:Router,
-     private route:ActivatedRoute,
      private modalService: NgbModal,
-     private toastr: ToastrService,) { }
+     private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.onPageLoad()

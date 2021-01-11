@@ -1,3 +1,6 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { CityService } from './city.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,7 +15,9 @@ import { CityAddComponent } from './city-add/city-add.component';
   declarations: [CityListComponent, CityEditComponent, CityAddComponent],
   imports: [
     CommonModule,
-    CityRoutingModule
+    CityRoutingModule,
+    RouterModule,
+    FormsModule
   ],
   providers:[CityService]
 })

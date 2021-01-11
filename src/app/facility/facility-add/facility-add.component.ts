@@ -1,4 +1,4 @@
-import { Facilities, Facility } from './../facility.model';
+import { Facility } from './../facility.model';
 
 import { FacilityService } from './../facility.service';
 import { Component, OnInit } from '@angular/core';
@@ -29,7 +29,7 @@ export class FacilityAddComponent implements OnInit {
   
   onSave(){
     if (!this.facility.facilityName) {
-      this.toastr.warning('please enter title')
+      this.toastr.warning('Please Enter Title')
     // alert('please enter titles')
     } else {
       this.service.createFacility(this.facility)

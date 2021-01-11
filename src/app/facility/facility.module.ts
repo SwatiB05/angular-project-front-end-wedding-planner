@@ -18,7 +18,7 @@ import { FacilityEditComponent } from './facility-edit/facility-edit.component';
     CommonModule,
     FacilityRoutingModule,
     RouterModule,
-    FormsModule,
+    FormsModule
 
   ],
   exports:[

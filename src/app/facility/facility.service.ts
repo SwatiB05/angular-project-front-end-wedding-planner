@@ -1,4 +1,4 @@
-import { browser } from 'protractor';
+
 import { Facilities,Facility } from './facility.model';
 
 import { HttpClient } from '@angular/common/http';
