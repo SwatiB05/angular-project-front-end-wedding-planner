@@ -15,7 +15,7 @@ export class CityService {
 
   city:Cities
 
-  getCities(){
+  getCities():Observable<any>{
     return this.http.get<Cities[]>(baseUrl)
   }
 

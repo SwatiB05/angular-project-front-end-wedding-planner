@@ -11,15 +11,25 @@ export class BookingService {
   constructor(private http:HttpClient ) {}
 
 
-  url:string="http://localhost:8080/admin"
+  url:string="http://localhost:8080/admin/bookings"
 
   getAllBookings():Observable<Bookings[]>{
 return this.http.get<Bookings[]>(this.url);
   }
 
-  getBookingDetail(id:number):Observable<Object>
-  {
-    return this.http.get(`${this.url}/${id}`);
-  }
+  // getBookingDetail(b):Observable<any>
+  // {
+  //   return this.http.get(`http://localhost:8080/customers/bookings/${b}`);
+  //  // return this.http.get('http://localhost:8080/customers/bookings/'+b)
+  // }
   
+
+
+  getBookingDetail(id:number): Observable<Bookings> {
+    return this.http.get<Bookings>('http://localhost:8080/customers/bookings/' + id)
+  
+  }
+  deleteBooking(id:number){
+    return this.http.delete('http://localhost:8080/customers/bookings/' + id, { responseType: 'text' })
+  }
 }

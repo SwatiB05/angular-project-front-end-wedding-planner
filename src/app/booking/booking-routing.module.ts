@@ -5,7 +5,7 @@ import { BookingDetailsComponent } from './booking-details/booking-details.compo
 
 const routes: Routes = [
   {path:'bookings',component:BookingListComponent},
-  {path:'booking/:id',component:BookingDetailsComponent}
+  {path:'bookings/:id',component:BookingDetailsComponent}
 ];
 
 @NgModule({

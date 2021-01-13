@@ -1,1 +1,39 @@
-<p>customer-list works!</p>
+<div class="card">
+    <div class="card-header">
+        <h2>Customer List</h2>
+    </div>
+    <div class="card-body">
+        <h5 *ngIf="customers.length==0"> &nbsp; There is no Bookings at the moment.</h5>
+        <table *ngIf="customers.length>0" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">No</th>
+                    <th> FirstName</th>
+                    <th> LastName</th>
+                    <th>Address</th>
+                    <th>Mobile No.</th>
+                    <th>Date of Account-Creation</th>
+                    <th>City</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of customers; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{c.firstName|titlecase}}</td>
+                    <td> {{c.lastName|titlecase}} </td>
+                    <td>{{c.customerAddress|titlecase}}</td>
+                    <td>{{c.phoneNo|titlecase}}</td>
+                    <td>{{c.DateOfCreation}}</td>
+                    <td>{{c.ccityId.city|titlecase}}</td>
+                    <td>
+                        <button (click)="onEdit(c.customerId)" class="btn btn-warning btn-sm">Edit</button>
+                        <button (click)="updateStatus(c.customerId)" *ngIf="c.status == 1" class="btn btn-sm btn-danger">Suspend</button>
+                        <button (click)="updateStatus(c.customerId)" *ngIf="c.status == 0" class="btn btn-sm btn-success">Activate</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="card-footer"></div> -->
+</div>
