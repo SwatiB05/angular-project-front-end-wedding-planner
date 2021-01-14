@@ -37,20 +37,23 @@ customers=[]
 
 
   onEdit(c:number){
-    this.router.navigate(['home/customers/customers',c])
+    this.router.navigate(['home/customers',c])
   }
 
 
   updateStatus(id){
     this.service.updateCustomerStatus(id).subscribe(
       response => {
-        console.log(response);      
+        console.log(response);
+      //  this.customer.ccityId = this.city.find(x => x.cityId == this.city1);
+          
+       if(this.customers.find(x=>x.isActive==1))    {}
         this.toastr.success(response)
         this.onPageLoad()
       },
       error => {
         console.log(error);
-        this.toastr.error('Error While Deleting..')
+        this.toastr.error('Error While Updating..')
       })   
   }
 }

@@ -1,6 +1,6 @@
 import { Cities, City } from './../../city/city.model';
 import { ToastrService } from 'ngx-toastr';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { CityService } from './../../city/city.service';
 import { Customers } from './../customer.model';
 import { Component, OnInit } from '@angular/core';
@@ -12,18 +12,20 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./customer-add.component.css']
 })
 export class CustomerAddComponent implements OnInit {
-  customer:Customers=new Customers()
-  city1:Cities=new Cities()
-  city: Cities[]
+  customer:Customers
+  city1:number
+  city: Cities[]=[]
+
 password:string
   constructor(private service:CustomerService,
     private citySer:CityService,
-    private route: ActivatedRoute,
+    private router: Router,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
-  
-this.loadCity()
+  this.customer=new Customers()
+
+   this.loadCity()
 
   }
   loadCity(){
@@ -39,8 +41,8 @@ this.loadCity()
   }
 
   selectChange(){
-    console.log('city: '+this.city1)
-    this.customer.ccityId=this.city1
+    console.log(this.city1)
+   this.customer.ccityId = this.city.find(x => x.cityId == this.city1);
   }
 
   // constructor(public customerId:number,public firstName:string,public customerAddress:string, public phoneNo:string,public email:string,public password:string,public status:number,public isActive:number,public ccityId:Cities){}
@@ -68,7 +70,8 @@ this.loadCity()
      else {
       this.service.createCustomer(this.customer)
         .subscribe(response => {
-          this.toastr.success("Customer Added SuccessFully")
+          this.toastr.success('Registration Success')
+          this.router.navigate(['auth/login'])
         },
         error=>{
           console.log(error)

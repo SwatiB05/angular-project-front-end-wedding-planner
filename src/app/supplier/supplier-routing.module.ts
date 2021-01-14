@@ -6,9 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { combineLatest } from 'rxjs';
 
 const routes: Routes = [
- {path:'suppliers',component:SupplierListComponent},
- {path:'suppliers/:id',component:SupplierEditComponent},
- {path:'suppliers.create',component:SupplierAddComponent}
+ {path:'',component:SupplierListComponent},
+ {path:':id',component:SupplierEditComponent},
+ {path:'create',component:SupplierAddComponent}
 ];
 
 @NgModule({

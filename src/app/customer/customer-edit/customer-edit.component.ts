@@ -38,9 +38,6 @@ city: Cities[]=[]
     this.customer.ccityId.cityId=this.city1
   }
 
-
-
-
 loadCustomer(){
   this.service.getCustomerDetail(this.id).subscribe(
     data=>{
@@ -52,6 +49,8 @@ loadCustomer(){
     }
   )
 }
+
+
 loadCity(){
   this.citySer.getCities().subscribe(
     data=>{

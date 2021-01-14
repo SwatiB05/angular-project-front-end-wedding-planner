@@ -38,8 +38,4 @@ createCustomer(c:Customers){
 }
 
 
-
-
-
-
 }

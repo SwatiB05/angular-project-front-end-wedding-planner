@@ -30,7 +30,7 @@ f:Facilities
       }
       
 
-  deleteFacility(id:number):Observable<any>{
+  deleteFacility(id:number){
     return this.http.delete(`${baseUrl}/${id}`, { responseType: 'text' })
   }
 

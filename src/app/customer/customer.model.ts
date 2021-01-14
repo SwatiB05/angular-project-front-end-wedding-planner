@@ -29,9 +29,9 @@ export class Customers{
     customerAddress:string;
     phoneNo:string;
     email:string;
-    status:number;
-    isActive:number;
+    status?:number;
+    isActive?:number;
     ccityId:Cities;
     DateOfCreation:Date;
-    password:string
+    password?:string;
 }

@@ -5,9 +5,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path:'cities/create',component:CityAddComponent},
-  {path:'cities/:id',component:CityEditComponent},
-  {path:'cities',component:CityListComponent}
+  {path:'create',component:CityAddComponent},
+  {path:':id',component:CityEditComponent},
+  {path:'',component:CityListComponent}
 ];
 
 @NgModule({

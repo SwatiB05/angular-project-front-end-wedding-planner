@@ -4,6 +4,6 @@ export class City{
  }
  
 export class Cities{
-    cityId?:number|null;
+cityId?:number;
     city:string
 }

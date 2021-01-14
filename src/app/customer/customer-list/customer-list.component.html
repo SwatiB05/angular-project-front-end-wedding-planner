@@ -8,11 +8,12 @@
             <thead>
                 <tr>
                     <th style="width: 50px;">No</th>
-                    <th> FirstName</th>
-                    <th> LastName</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
                     <th>Address</th>
                     <th>Mobile No.</th>
-                    <th>Date of Account-Creation</th>
+                    <th>Email Id</th>
+                    <th>Creation-On</th>
                     <th>City</th>
                     <th>Action</th>
                 </tr>
@@ -21,15 +22,16 @@
                 <tr *ngFor="let c of customers; let i=index">
                     <td>{{i + 1}}</td>
                     <td>{{c.firstName|titlecase}}</td>
-                    <td> {{c.lastName|titlecase}} </td>
+                    <td>{{c.lastName|titlecase}}</td>
                     <td>{{c.customerAddress|titlecase}}</td>
                     <td>{{c.phoneNo|titlecase}}</td>
+                    <td>{{c.email|lowercase}}</td>
                     <td>{{c.DateOfCreation}}</td>
                     <td>{{c.ccityId.city|titlecase}}</td>
                     <td>
                         <button (click)="onEdit(c.customerId)" class="btn btn-warning btn-sm">Edit</button>
-                        <button (click)="updateStatus(c.customerId)" *ngIf="c.status == 1" class="btn btn-sm btn-danger">Suspend</button>
-                        <button (click)="updateStatus(c.customerId)" *ngIf="c.status == 0" class="btn btn-sm btn-success">Activate</button>
+                        <button (click)="updateStatus(c.customerId)" *ngIf="c.isActive == 1" class="btn btn-sm btn-danger">Suspend</button>
+                        <button (click)="updateStatus(c.customerId)" *ngIf="c.isActive == 0" class="btn btn-sm btn-success">Activate</button>
                     </td>
                 </tr>
             </tbody>

@@ -5,9 +5,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path:'supplierService',component:SupplierServicesListComponent},
-  {path:'supplierService/create',component:SupplierServicesAddComponent},
-  {path:'supplierService/:id',component:SupplierServicesEditComponent}
+  {path:'',component:SupplierServicesListComponent},
+  {path:'create',component:SupplierServicesAddComponent},
+  {path:':id',component:SupplierServicesEditComponent}
 ];
 
 @NgModule({
