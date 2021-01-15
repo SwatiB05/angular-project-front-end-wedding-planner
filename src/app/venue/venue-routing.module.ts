@@ -1,3 +1,4 @@
+import { VenueDetailsComponent } from './venue-details/venue-details.component';
 import { VenueEditComponent } from './venue-edit/venue-edit.component';
 import { VenueAddComponent } from './venue-add/venue-add.component';
 import { VenueListComponent } from './venue-list/venue-list.component';
@@ -7,7 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {path:'venues',component:VenueListComponent},
   {path:'venues/create',component:VenueAddComponent},
-  {path:'venues/:id',component:VenueEditComponent}
+  {path:'venues/:id',component:VenueEditComponent},
+  {path:'venues/:id',component:VenueDetailsComponent}
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ import { combineLatest } from 'rxjs';
 const routes: Routes = [
  {path:'suppliers',component:SupplierListComponent},
  {path:'suppliers/:id',component:SupplierEditComponent},
- {path:'suppliers.create',component:SupplierAddComponent}
+ {path:'suppliers/create',component:SupplierAddComponent}
 ];
 
 @NgModule({

@@ -1,5 +1,10 @@
+// export class Services{
+//     constructor(public serviceId:number,public serviceName:string){}
+// }
+
 export class Services{
-    constructor(public serviceId:number,public serviceName:string){}
+    serviceId?:number|null;
+    serviceName:string
 }
 
 // {

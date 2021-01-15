@@ -21,15 +21,11 @@ f:Facilities
     return this.http.get<Facilities[]>(baseUrl)
     }
 
-//   editFacility(f:Facilities):Observable<Object>{
-// return this.http.put(`${baseUrl}/${f.facilityId}`,JSON.stringify(f));
-//   }
   editFacility(f:Facility):Observable<Object>{
     return this.http.put(`${baseUrl}/${f.facilityId}`,f,{responseType: 'text'});
    
       }
       
-
   deleteFacility(id:number):Observable<any>{
     return this.http.delete(`${baseUrl}/${id}`, { responseType: 'text' })
   }

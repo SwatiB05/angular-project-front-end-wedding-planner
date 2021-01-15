@@ -1,1 +1,31 @@
-<p>service-list works!</p>
+<div class="card">
+    <div class="card-header">
+        <h2>Service List</h2>
+    </div>
+    <div class="card-body">
+        <button (click)="onAdd()" style="margin-bottom: 20px;" class="btn btn-success float-right">Add</button>
+        <h5 *ngIf="services?.length==0"> &nbsp; There is no Facility at the moment. Please add one using 'Add' button.</h5>
+        <table *ngIf="services?.length>0" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th style="width: 50px;">No</th>
+                    <th>Title</th>
+                    <th style="width: 150px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let serv of services; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{ serv.serviceName |uppercase}}</td>
+                    <td>
+                        <button (click)="onEdit(serv)" class="btn btn-warning btn-sm">Edit</button>
+                        <button (click)="onDelete(serv.serviceId)" style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+    <!-- <div class="card-footer"></div> -->
+</div>

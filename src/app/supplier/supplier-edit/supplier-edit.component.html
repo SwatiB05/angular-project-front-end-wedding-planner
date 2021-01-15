@@ -1,1 +1,27 @@
-<p>supplier-edit works!</p>
+<div class="modal-header">
+    <h3>Edit Supplier</h3>
+</div>
+
+<div class="modal-body">
+    <div class="form">
+        <div class="form-group">
+            <label for="">First Name</label>
+                <input [(ngModel)]="this.c.firstName" type="text" class="form-control">
+                <label for="">Last Name</label>
+                <input [(ngModel)]="this.c.lastName" type="text" class="form-control">
+                <label for="">cityid</label>
+                <input [(ngModel)]="this.c.scityId" type="text" class="form-control">
+                <label for="">Contact</label>
+                <input [(ngModel)]="this.c.phoneNo" type="text" class="form-control">
+                <label for="">Email</label>
+                <input [(ngModel)]="this.c.email" type="text" class="form-control">
+                <label for="">Password</label>
+                <input [(ngModel)]="this.c.password" type="text" class="form-control">
+                </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button (click)="onUpdate()" class="btn btn-success">Update</button>
+    <button (click)="onCancel()" class="btn btn-danger float-right">Cancel</button>
+</div>

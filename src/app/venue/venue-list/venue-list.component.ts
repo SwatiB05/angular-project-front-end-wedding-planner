@@ -1,4 +1,11 @@
+import { VenueDetailsComponent } from './../venue-details/venue-details.component';
+import { VenueEditComponent } from './../venue-edit/venue-edit.component';
+import { VenueAddComponent } from './../venue-add/venue-add.component';
+import { VenueService } from './../venue.service';
+import { Venue } from './../venue.model';
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
+import { NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-venue-list',
@@ -7,9 +14,70 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VenueListComponent implements OnInit {
 
-  constructor() { }
+ 
+venues=[]
+message=''
+  constructor(private service:VenueService,
+    private modalService: NgbModal,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.onPageLoad()
+  }
+
+  onPageLoad(){
+this.service.getVenues().subscribe(data=>{
+    this.venues=data;
+    console.log(data)
+},
+error => {
+  console.log(error);
+})
+  }
+
+  onload(venue:Venue){
+    const modalref=this.modalService.open(VenueDetailsComponent)
+    const component = modalref.componentInstance as VenueDetailsComponent
+      // pre-fill the title and description
+      component.v=venue
+    modalref.result.finally(()=>{
+      console.log(component.v + "in on load venue list")
+      this.onPageLoad()
+    })
+  }
+
+  onAdd(){
+    const modalRef = this.modalService.open(VenueAddComponent)
+    modalRef.result.finally(() => {
+      this.onPageLoad()
+    })
+  }
+
+
+  onEdit(venue:Venue){
+      const modalRef = this.modalService.open(VenueEditComponent)
+      // get the edit comopnent's reference
+      const component = modalRef.componentInstance as VenueEditComponent
+      // pre-fill the title and description
+      component.v=venue
+      modalRef.result.finally(() => {
+        // reload the categories
+        this.onPageLoad()
+      })
+  }
+
+  onDelete(id){
+    this.service.deleteVenue(id).subscribe(
+      response => {
+        console.log(response);
+        this.message = response
+        this.toastr.success(this.message)
+        this.onPageLoad()
+      },
+      error => {
+        console.log(error);
+        this.toastr.error('Error While Deleting..')
+      })
   }
 
 }
