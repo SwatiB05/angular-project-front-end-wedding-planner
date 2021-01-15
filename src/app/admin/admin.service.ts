@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from '../auth/login/login.model';
@@ -12,7 +13,7 @@ export class AdminService {
 
   constructor(private http: HttpClient) {}
 
-  adminLogin(email: string, pass: string) {
+  adminLogin(email: string, pass: string): Observable<any> {
     this.admin.email = email;
     this.admin.password = pass;
 

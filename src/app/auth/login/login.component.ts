@@ -19,6 +19,7 @@ import { Admin } from 'src/app/admin/admin.model';
 export class LoginComponent implements OnInit {
   email: string;
   pass: string;
+  admin: Admin = new Admin();
   user: object = [
     { id: 1, user: 'Admin' },
     { id: 2, user: 'Customer' },
@@ -39,8 +40,18 @@ export class LoginComponent implements OnInit {
     if (this.selected == 1) {
       this.adminService.adminLogin(this.email, this.pass).subscribe(
         (res) => {
+          this.admin = res;
           this.router.navigate(['home/customers', { data: res }]);
-          this.toastr.success('Welcome Back');
+          this.toastr.success(
+            'Welcome Back ' + JSON.stringify(this.admin.firstName)
+          );
+          console.log(
+            this.admin.firstName +
+              '   ' +
+              typeof this.admin +
+              '   ' +
+              typeof this.admin.firstName
+          );
         },
         (error) => {
           console.log(error);
