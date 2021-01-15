@@ -24,14 +24,14 @@ import { Cities } from './../city/city.model';
 
 export class Customers{
     customerId?:number|null;
-    firstName:string;
-    lastName:string;
-    customerAddress:string;
-    phoneNo:string;
+    firstName?:string;
+    lastName?:string;
+    customerAddress?:string;
+    phoneNo?:string;
     email:string;
     status?:number;
     isActive?:number;
-    ccityId:Cities;
-    DateOfCreation:Date;
+    ccityId?:Cities;
+    DateOfCreation?:Date;
     password?:string;
 }
