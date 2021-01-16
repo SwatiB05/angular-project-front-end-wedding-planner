@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Facilities } from '../facility.model';
+import { FacilityId } from '../facility.model';
 import { FacilityService } from './../facility.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FacilityEditComponent implements OnInit {
 
-  facility:Facilities
+  facility:FacilityId
   constructor(private modal: NgbActiveModal,
     private service:FacilityService,
     private toastr: ToastrService) { }

@@ -1,5 +1,6 @@
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
@@ -18,7 +19,8 @@ const routes: Routes = [
     {path:'venues',loadChildren:()=>import('./venue/venue.module').then(m=>m.VenueModule)},
     {path:'facilities',loadChildren:()=>import('./facility/facility.module').then(m=>m.FacilityModule)},
     {path:'venueFacilities',loadChildren:()=>import('./venue-facilities/venue-facilities.module').then(m=>m.VenueFacilitiesModule)},
-    {path:'bookings',loadChildren:()=>import('./booking/booking.module').then(m=>m.BookingModule)}
+    {path:'bookings',loadChildren:()=>import('./booking/booking.module').then(m=>m.BookingModule)},
+    {path:'dashboard',component:DashboardComponent}
   ]
   },
   {path:'auth',loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)}

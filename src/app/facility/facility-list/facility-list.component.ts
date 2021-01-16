@@ -1,5 +1,5 @@
 import { FacilityEditComponent } from './../facility-edit/facility-edit.component';
-import { Facilities } from './../facility.model';
+import { FacilityId } from './../facility.model';
 import { ToastrService } from 'ngx-toastr';
 import { FacilityAddComponent } from './../facility-add/facility-add.component';
 import { FacilityService } from './../facility.service';
@@ -45,7 +45,7 @@ onAdd() {
   })
 }
 
-  onEdit(facility:Facilities){
+  onEdit(facility:FacilityId){
       const modalRef = this.modalService.open(FacilityEditComponent)
 
       // get the edit comopnent's reference

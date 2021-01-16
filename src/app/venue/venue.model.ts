@@ -1,5 +1,4 @@
-import { VenueFacilities } from './../venue-facilities/venueFacilities.model';
-
+import { VenueFacility } from './../venue-facilities/venueFacilities.model';
 
 // export class Venue{
 //     constructor(public venueId:number,
@@ -14,16 +13,15 @@ import { VenueFacilities } from './../venue-facilities/venueFacilities.model';
 //         ){}
 // }
 
-export class Venue{
-     venueId?:number |null;
-         venueName:string;
-          venueAddress:string;
-          cityId:number;
-          facilities:VenueFacilities;
-          phoneNo:string;
-          email:string;
-          image:string;
-          guestCapacity:number;
-          description:string
- 
- }
+export interface Venue {
+  venueId?: number | null;
+  venueName: string;
+  venueAddress: string;
+  cityId: number;
+  facilities: VenueFacility;
+  phoneNo: string;
+  email: string;
+  image: string;
+  guestCapacity: number;
+  description: string;
+}

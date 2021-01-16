@@ -1,5 +1,5 @@
 
-import { Facilities,Facility } from './facility.model';
+import { FacilityId } from './facility.model';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -13,25 +13,28 @@ const baseUrl = 'http://localhost:8080/admin/facilities';
   providedIn: 'root'
 })
 export class FacilityService {
-f:Facilities
+f:FacilityId
   constructor(private http:HttpClient) { }
 
   getFacilities() {
     
-    return this.http.get<Facilities[]>(baseUrl)
+    return this.http.get<FacilityId[]>(baseUrl)
     }
 
-  editFacility(f:Facility):Observable<Object>{
+  editFacility(f:FacilityId):Observable<Object>{
     return this.http.put(`${baseUrl}/${f.facilityId}`,f,{responseType: 'text'});
    
       }
       
-  deleteFacility(id:number):Observable<any>{
+
+
+  deleteFacility(id:number){
+
     return this.http.delete(`${baseUrl}/${id}`, { responseType: 'text' })
   }
 
 
-  createFacility(f:Facility){
-    return this.http.post<Facilities>(`${baseUrl}/create`,f,{ responseType: 'text' as 'json'  })
+  createFacility(f:FacilityId){
+    return this.http.post<FacilityId>(`${baseUrl}/create`,f,{ responseType: 'text' as 'json'  })
   }
 }

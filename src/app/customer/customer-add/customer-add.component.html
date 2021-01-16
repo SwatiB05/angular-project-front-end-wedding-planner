@@ -1,1 +1,62 @@
-<p>customer-add works!</p>
+<div class="modal-header">
+    <h3>Customer Registration</h3>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="form">
+                    <div class="form-group">
+                        <label for="">First Name</label>
+                        <input [(ngModel)]="customer.firstName" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Last Name</label>
+                        <input [(ngModel)]="customer.lastName" type="text" class="form-control">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="">Mobile No.</label>
+                        <input [(ngModel)]="customer.phoneNo" type="text" class="form-control" pattern="[789][0-9]{9}">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input [(ngModel)]="customer.email" type="text" class="form-control" style="text-transform:lowercase">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">City</label>
+                        <select [(ngModel)]="city1" class="form-control" (change)="selectChange()">
+                          <option [value]="x.cityId" *ngFor="let x of city" >{{x.city}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for=" ">Address</label>
+                        <textarea [(ngModel)]="customer.customerAddress " rows="3 " class="form-control "></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" [(ngModel)]="customer.password" class="form-control" />
+
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" [(ngModel)]="password" class="form-control" />
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button (click)="onSubmit()" class="btn btn-primary">Register</button>
+                        <!-- <button (click)="onCancel() " class="btn btn-danger float-right ">Cancel</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

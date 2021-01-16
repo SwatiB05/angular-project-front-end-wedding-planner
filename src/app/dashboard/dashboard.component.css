@@ -1,0 +1,35 @@
+.info{
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.info .header{
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.info-pink{
+background: linear-gradient(135deg, rgb(251, 45, 158)0%,rgba(250, 67, 168, 0.486)100%);
+}
+.info-orange{
+    background: linear-gradient(135deg, rgb(252, 161, 43)0%,rgba(250, 149, 67, 0.61)100%);
+}
+.info-voilet{
+    background: linear-gradient(135deg, rgb(202, 33, 253)0%,rgba(207, 67, 250, 0.438)100%);
+}
+.info-red{
+    background: linear-gradient(135deg, rgb(251, 45, 45)0%,rgba(250, 67, 67, 0.493)100%);
+}
+.info-green{
+    background: linear-gradient(135deg, rgb(34, 250, 6)0%,rgba(119, 250, 67, 0.61)100%);
+}
+.info-blue{
+    background: linear-gradient(135deg, rgb(33, 154, 253)0%,rgba(67, 183, 250, 0.425)100%);
+}
+.info-peach{
+    background: linear-gradient(135deg, rgb(251, 45, 90)0%,rgba(250, 67, 91, 0.493)100%);
+}
+
+

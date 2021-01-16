@@ -12,14 +12,16 @@ import { LoginComponent } from './auth/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component'
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardComponent } from './dashboard/dashboard.component'; 
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent
     
   ],
   imports: [

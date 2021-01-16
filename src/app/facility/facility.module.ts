@@ -2,9 +2,6 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
-
-
 
 import { FacilityRoutingModule } from './facility-routing.module';
 import { FacilityListComponent } from './facility-list/facility-list.component';

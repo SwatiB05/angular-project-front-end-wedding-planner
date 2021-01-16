@@ -1,9 +1,9 @@
 
-// export class Cities{
-//     constructor (public cityId: number,public city: string){}
-//  }
+export class City{
+    constructor (public cityId: number,public city: string){}
+ }
  
 export class Cities{
-    cityId?:number|null;
+cityId?:number;
     city:string
 }

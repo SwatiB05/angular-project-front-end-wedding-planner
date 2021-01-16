@@ -1,1 +1,58 @@
-<p>customer-edit works!</p>
+<div class="modal-header">
+    <h3>Edit Customer</h3>
+</div>
+<!-- export class Customers{ customerId?:number|null; firstName:string; lastName:string; customerAddress:string; phoneNo:string; email:string; status:number; isActive:number; ccityId:Cities; DateOfCreation:Date } -->
+<div class="modal-body">
+    <div class="form">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input [(ngModel)]="customer.firstName" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input [(ngModel)]="customer.lastName" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Mobile No.</label>
+                    <input [(ngModel)]="customer.phoneNo" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input [(ngModel)]="customer.email" type="text" class="form-control" style="text-transform:lowercase">
+                </div>
+            </div>
+        </div>
+        <!-- "[selected]="customer.ccityId.cityId==x.cityId "  -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">City</label>
+                    <select [(ngModel)]="city1" class="form-control" (change)="selectChange()">
+                      <option [value]="x.cityId" *ngFor="let x of city">{{x.city}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="form-group ">
+                    <label for=" ">Address</label>
+                    <textarea [(ngModel)]="customer.customerAddress " rows="3 " class="form-control "></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer ">
+        <button (click)="onUpdate(customer) " class="btn btn-success ">Update</button>
+        <!-- <button (click)="onCancel() " class="btn btn-danger float-right ">Cancel</button> -->
+    </div>

@@ -1,5 +1,7 @@
 import { BookingService } from './../booking.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-booking-list',
@@ -8,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingListComponent implements OnInit {
 bookings=[]
-  constructor(private service:BookingService) { }
+id:number
+  constructor(private service:BookingService,
+   private router:Router) { }
 
   ngOnInit(): void {
     this.loadBookings()
@@ -23,6 +27,12 @@ bookings=[]
         console.log(error)
       }
     )
+  }
+
+  onEdit(b:number){
+
+   // this.router.navigate(['id'], { relativeTo: this.route });
+  this.router.navigate(['home/bookings',b])
   }
 
 

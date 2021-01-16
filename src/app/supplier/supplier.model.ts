@@ -24,5 +24,5 @@ export class Suppliers{
     email:string;
     password :string;
     isActive:number;
-    AccountCreationDate: String;
+    AccountCreationDate: Date;
 }

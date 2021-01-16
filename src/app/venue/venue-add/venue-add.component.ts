@@ -1,8 +1,11 @@
+import { VenueFacility } from './../../venue-facilities/venueFacilities.model';
+import { VenueFacilitiesService } from './../../venue-facilities/venue-facilities.service';
 import { Venue } from './../venue.model';
 import { VenueService } from './../venue.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -12,7 +15,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class VenueAddComponent implements OnInit {
 
-  venue:Venue=new Venue()
+  venue:Venue;
+  venuefacility1:number
+  venuefacility: VenueFacility[]=[]
   message=''
 
   constructor(private modal: NgbActiveModal,

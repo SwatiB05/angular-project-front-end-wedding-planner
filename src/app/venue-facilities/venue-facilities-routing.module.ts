@@ -5,9 +5,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path:'venueFacilities',component:VenueFacilitiesListComponent},
-  {path:'venueFacilities/create',component:VenueFacilitiesAddComponent},
-  {path:'venueFacilities/:id',component:VenueFacilitiesEditComponent}
+  {path:'',component:VenueFacilitiesListComponent},
+  {path:'create',component:VenueFacilitiesAddComponent},
+  {path:':id',component:VenueFacilitiesEditComponent}
 ];
 
 @NgModule({

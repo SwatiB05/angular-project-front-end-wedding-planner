@@ -1,4 +1,4 @@
-import { Facilities } from './../facility/facility.model';
+import {  FacilityId } from './../facility/facility.model';
 // {
     //             "venueFacilityId": 1,
     //             "facilityId": {
@@ -8,6 +8,9 @@ import { Facilities } from './../facility/facility.model';
     //             "charges": 12000.0
     //         }
 
-    export class VenueFacilities{
-        constructor(public venueFacilityId:number,public facilityId:Facilities,public charges:number){}
+    export class VenueFacility {
+        venueFacilityId: number;
+        bookings: any[];
+        facilityId: FacilityId;
+        charges: number;
     }
