@@ -30,8 +30,6 @@ id:number
   }
 
   onEdit(b:number){
-
-   // this.router.navigate(['id'], { relativeTo: this.route });
   this.router.navigate(['home/bookings',b])
   }
 

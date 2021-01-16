@@ -1,14 +1,26 @@
 import { Suppliers } from './supplier.model';
-import { Injectable } from '@angular/core';
+
 import { HttpClient } from '@angular/common/http';
+
+import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 
 const baseUrl='http://localhost:8080/admin/suppliers'
 
+const supUrl = 'http://localhost:8080/suppliers/';
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SupplierService {
+  // constructor(private http: HttpClient) {}
+  // supplier: Suppliers = new Suppliers();
+
+  // supplierLogin(email: string, pass: string) {
+  //   this.supplier.email = email;
+  //   this.supplier.password = pass;
+
 
   constructor(private http:HttpClient) { }
 
@@ -29,4 +41,16 @@ createSupplier(c:Suppliers){
 deleteSupplier(id:number){
   return this.http.delete(`${baseUrl}/${id}`, { responseType: 'text' })
 }
+
+supplierLogin(email: string, pass: string) {
+  this.supplier.email = email;
+  this.supplier.password = pass;
+
+  return this.http.post<Suppliers>(supUrl + '/login', this.supplier, {
+    responseType: 'text' as 'json',
+  });
 }
+   
+  }
+
+
