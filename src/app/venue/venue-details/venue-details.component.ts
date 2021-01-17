@@ -12,7 +12,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class VenueDetailsComponent implements OnInit {
   v: Venue;
-  vf:VenueFacility;
+  vf: VenueFacility[] = [];
 
   message = '';
 
@@ -21,21 +21,20 @@ export class VenueDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   onPageLoad() {
-       this.service.getVenueId(this.v).subscribe(
-       (data) => {
-       console.log("in venue details "+ data.cityId)
-       this.v = data;
-       console.log(data + ' in data');
-       console.log(this.v.facilities.charges);
-       },
-       (error) => {
-       console.log(error);
-       }
-     );
+    this.service.getVenueId(this.v).subscribe(
+      (data) => {
+        console.log('in venue details ' + data.cityId);
+        this.v = data;
+        console.log(data + ' in data');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     // console.log('in venue details ');
   }
 
   onCancel() {
-    this.modal.dismiss('cancel')
+    this.modal.dismiss('cancel');
   }
 }

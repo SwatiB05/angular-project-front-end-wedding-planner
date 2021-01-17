@@ -12,6 +12,10 @@ export class VenueFacilitiesService {
 
   constructor(private http:HttpClient) { 
 
-        
+     
+  }
+  
+  getVenueFacilities():Observable<any>{
+    return this.http.get<VenueFacility[]>(baseUrl)
   }
 }
