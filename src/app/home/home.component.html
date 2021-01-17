@@ -1,81 +1,70 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand">Admin</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<<<<<<< HEAD
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+<div class="bg-img">
+    <nav style="align-self: center;" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">Admin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/dashboard">Dashboard</a>
-            </li>
-=======
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
->>>>>>> 3690f152ced9005084fc1139a3d0965808d47f3f
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/facilities">Facility</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/cities">City</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/bookings">Bookings</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/services">Service</a>
-            </li>
-            <li class="nav-item">
-<<<<<<< HEAD
-                <a class="nav-link" routerLink="/home/venues">Venue</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/suppliers">Suppliers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/customers">Customers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/customers/create">Customer Register</a>
-            </li>
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/dashboard">Dashboard</a>
+                </li>
+    
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/facilities">Facility</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/cities">City</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/bookings">Bookings</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/services">Service</a>
+                </li>
+                <li class="nav-item">
+    
+                    <a class="nav-link" routerLink="/home/venues">Venue</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/suppliers">Suppliers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/customers">Customers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/customers/create">Customer Register</a>
+                </li> -->
+                   
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/auth/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home/welcomepage/contactus">Contact Us</a
+            >
+          </li>
+    
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home/welcomepage/home">Home Page</a>
+                </li>
+    
+                       
         </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <!--
+          child level routing
+          - 
+        -->
+        <router-outlet></router-outlet>
     </div>
-</nav>
     
-
-<div class="container">
-    <!--
-      child level routing
-      - 
-    -->
-    <router-outlet></router-outlet>
-</div>
-=======
-                <a class="nav-link" routerLink="/home/customers/create">Customer Register</a
-        >
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/auth/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/home/welcomepage/contactus">Contact Us</a
-        >
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/home/welcomepage/home">Contact Us</a>
-            </li>
-
-            <div class="container">
-                <router-outlet></router-outlet>
-            </div>
-        </ul>
-    </div>
-</nav>
->>>>>>> 3690f152ced9005084fc1139a3d0965808d47f3f
+    
+    
+  </div>

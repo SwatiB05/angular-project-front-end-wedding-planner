@@ -1,0 +1,16 @@
+p{
+    font-weight:400;
+    font-size: 20px;
+    font-style: italic;
+}
+
+h1{
+    margin-top: 20%;
+    font-family: sans-serif;
+    color: rgb(255, 35, 126);
+}
+
+.btn-primary{
+    background-color: #f82f8d !important;
+}
+

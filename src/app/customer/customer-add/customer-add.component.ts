@@ -1,4 +1,4 @@
-import { Cities, City } from './../../city/city.model';
+import { Cities } from './../../city/city.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CityService } from './../../city/city.service';

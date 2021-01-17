@@ -1,4 +1,4 @@
-export interface FacilityId {
+export class FacilityId {
    facilityId: number;
    facilityName: string;
 }

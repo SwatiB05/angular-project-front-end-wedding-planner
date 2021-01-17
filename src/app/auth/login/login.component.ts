@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       this.adminService.adminLogin(this.email, this.pass).subscribe(
         (res) => {
           this.admin = res;
-          this.router.navigate(['home/customers', { data: res }]);
+          this.router.navigate(['home/dashboard', { data: res }]);
           this.toastr.success(
             'Welcome Back ' + JSON.stringify(this.admin.firstName)
           );

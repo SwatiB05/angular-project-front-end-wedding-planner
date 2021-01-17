@@ -39,7 +39,7 @@ export class CustomerService {
     });
   }
 
-  customerLogin(email: string, pass: string) {
+  customerLogin(email: string, pass: string):Observable<any> {
     this.customer.email = email;
     this.customer.password = pass;
 
