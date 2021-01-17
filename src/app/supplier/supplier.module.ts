@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SupplierService } from './supplier.service';
@@ -9,16 +8,20 @@ import { SupplierRoutingModule } from './supplier-routing.module';
 import { SupplierAddComponent } from './supplier-add/supplier-add.component';
 import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
 import { SupplierListComponent } from './supplier-list/supplier-list.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [SupplierAddComponent, SupplierEditComponent, SupplierListComponent],
+  declarations: [
+    SupplierAddComponent,
+    SupplierEditComponent,
+    SupplierListComponent,
+  ],
   imports: [
     CommonModule,
     SupplierRoutingModule,
     RouterModule,
     FormsModule
   ],
-  providers:[SupplierService]
+  providers: [SupplierService],
 })
-export class SupplierModule { }
+export class SupplierModule {}
