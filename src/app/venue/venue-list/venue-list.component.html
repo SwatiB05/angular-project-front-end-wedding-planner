@@ -54,6 +54,8 @@
         More Details
       </button>
       <button style="margin-left: 10px;" (click)="onEdit(venue)" class="btn btn-warning ">Edit</button>
+    
+      <button style="margin-top: 10px;" type="button" (click)="onVenueBook(venue)" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Book venue</button>
     </div>
     <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
       <div class="views">{{venue.vcityId.city}}

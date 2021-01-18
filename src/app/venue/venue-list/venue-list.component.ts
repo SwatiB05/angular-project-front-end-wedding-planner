@@ -1,3 +1,4 @@
+import { VenueBookComponent } from './../venue-book/venue-book.component';
 import { VenueDetailsComponent } from './../venue-details/venue-details.component';
 import { VenueEditComponent } from './../venue-edit/venue-edit.component';
 import { VenueAddComponent } from './../venue-add/venue-add.component';
@@ -44,6 +45,17 @@ export class VenueListComponent implements OnInit {
     console.log(component.v);
     modalref.result.finally(() => {
       component.onPageLoad();
+    });
+  }
+
+  onVenueBook(venue:Venue){
+    const modalref = this.modalService.open(VenueBookComponent);
+    const component = modalref.componentInstance as VenueBookComponent;
+    // pre-fill the title and description
+    component.v = venue;
+    console.log(component.v);
+    modalref.result.finally(() => {
+      component.onBook();
     });
   }
 

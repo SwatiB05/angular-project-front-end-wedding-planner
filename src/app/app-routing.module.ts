@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule, Component } from '@angular/core';
@@ -29,7 +31,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),BrowserModule,CommonModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
