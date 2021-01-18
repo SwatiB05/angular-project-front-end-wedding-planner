@@ -1,3 +1,4 @@
+import { LoginService } from './login.service';
 import { Suppliers } from './../../supplier/supplier.model';
 import { SupplierService } from './../../supplier/supplier.service';
 import { Login } from './login.model';
@@ -19,68 +20,71 @@ import { Admin } from 'src/app/admin/admin.model';
 export class LoginComponent implements OnInit {
   email: string;
   pass: string;
-  admin: Admin = new Admin();
+  //admin: Admin = new Admin();
   user: object = [
     { id: 1, user: 'Admin' },
     { id: 2, user: 'Customer' },
     { id: 3, user: 'Supplier' },
   ];
+  
   selected: number;
   constructor(
     private adminService: AdminService,
     private toastr: ToastrService,
     private router: Router,
     private cusService: CustomerService,
-    private supService: SupplierService
+    private supService: SupplierService,
+    private auth:LoginService
   ) {}
 
   ngOnInit(): void {}
 
   onLogin() {
-    if (this.selected == 1) {
-      this.adminService.adminLogin(this.email, this.pass).subscribe(
-        (res) => {
-          this.admin = res;
-          this.router.navigate(['home/dashboard', { data: res }]);
-          this.toastr.success(
-            'Welcome Back ' + JSON.stringify(this.admin.firstName)
-          );
-          console.log(
-            this.admin.firstName +
-              '   ' +
-              typeof this.admin +
-              '   ' +
-              typeof this.admin.firstName
-          );
-        },
-        (error) => {
-          console.log(error);
-          this.toastr.error('Please Check Credentials');
-        }
-      );
-    } else if (this.selected == 2) {
-      this.cusService.customerLogin(this.email, this.pass).subscribe(
-        (res) => {
-          this.router.navigate(['home/customers/', { data: res }]);
-          this.toastr.success('Welcome Back');
-        },
-        (error) => {
-          console.log(error);
-          this.toastr.error('Please Check Credentials');
-        }
-      );
-    } else {
-      this.supService.supplierLogin(this.email, this.pass).subscribe(
-        (res: any) => 
-        {
-          this.router.navigate(['home/customers/', { data: res }]);
-          this.toastr.success('Welcome Back');
-        },
-        (error) => {
-          console.log(error);
-          this.toastr.error('Please Check Credentials');
-        }
-      );
-    }
+    // if (this.selected == 1) {
+      console.log("in loggggg")
+      this.auth.authenticate(this.email, this.pass)
+      
+      //   (res) => {
+      //     this.admin = res;
+      //     this.router.navigate(['home/dashboard', { data: res }]);
+      //     this.toastr.success('Welcome Back ');
+      //     this.invalidLogin=false
+      //     console.log(
+      //       this.admin.firstName +
+      //         '   ' +
+      //         typeof this.admin +
+      //         '   ' +
+      //         typeof this.admin.firstName
+      //     );
+      //   }
+      // }else{
+        
+      // }
+        
+   // }
+  //  } else if (this.selected == 2) {
+  //     this.cusService.customerLogin(this.email, this.pass).subscribe(
+  //       (res) => {
+  //         this.router.navigate(['home/customers/', { data: res }]);
+  //         this.toastr.success('Welcome Back');
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //         this.toastr.error('Please Check Credentials');
+  //       }
+  //     );
+  //   } else {
+  //     this.supService.supplierLogin(this.email, this.pass).subscribe(
+  //       (res: any) => 
+  //       {
+  //         this.router.navigate(['home/customers/', { data: res }]);
+  //         this.toastr.success('Welcome Back');
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //         this.toastr.error('Please Check Credentials');
+  //       }
+  //     );
+  //   }
   }
 }

@@ -16,6 +16,7 @@ export class AdminService {
   adminLogin(email: string, pass: string): Observable<any> {
     this.admin.email = email;
     this.admin.password = pass;
+    console.log("in admin")
 
     return this.http.post<Admin>(this.baseUrl, this.admin, {
       responseType: 'text' as 'json',
