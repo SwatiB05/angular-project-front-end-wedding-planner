@@ -1,4 +1,4 @@
-import { VenueFacility } from './../../venue-facilities/venueFacilities.model';
+import { VenueFacilities } from './../../venue-facilities/venueFacilities.model';
 import { VenueFacilitiesService } from './../../venue-facilities/venue-facilities.service';
 import { Venue } from './../venue.model';
 import { VenueService } from './../venue.service';
@@ -6,46 +6,43 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 
-
-
 @Component({
   selector: 'app-venue-add',
   templateUrl: './venue-add.component.html',
-  styleUrls: ['./venue-add.component.css']
+  styleUrls: ['./venue-add.component.css'],
 })
 export class VenueAddComponent implements OnInit {
+  venue: Venue;
+  venuefacility1: number;
+  venuefacility: VenueFacilities[] = [];
+  message = '';
 
-  venue:Venue;
-  venuefacility1:number
-  venuefacility: VenueFacility[]=[]
-  message=''
+  constructor(
+    private modal: NgbActiveModal,
+    private service: VenueService,
+    private toastr: ToastrService
+  ) {}
 
-  constructor(private modal: NgbActiveModal,
-    private service:VenueService,
-    private toastr: ToastrService) { }
+  ngOnInit(): void {}
 
-
-  ngOnInit(): void {
-  }
-
-  
-  onSave(){
+  onSave() {
     if (!this.venue.venueName) {
-      this.toastr.warning('Please Enter Name')
-    // alert('please enter titles')
+      this.toastr.warning('Please Enter Name');
+      // alert('please enter titles')
     } else {
-      this.service.createVenue(this.venue)
-        .subscribe(response => {
-          this.toastr.success("Venue Added SuccessFully")
-          this.modal.dismiss('ok')       
+      this.service.createVenue(this.venue).subscribe(
+        (response) => {
+          this.toastr.success('Venue Added SuccessFully');
+          this.modal.dismiss('ok');
         },
-        error=>{
-this.toastr.error('Cannot add Duplicate Venue')
-        })
+        (error) => {
+          this.toastr.error('Cannot add Duplicate Venue');
+        }
+      );
     }
   }
-  
-  onCancel(){
-     this.modal.dismiss('cancel')
+
+  onCancel() {
+    this.modal.dismiss('cancel');
   }
 }
