@@ -1,4 +1,3 @@
-import { VenueFacility } from './../../venue-facilities/venueFacilities.model';
 import { Venue } from './../venue.model';
 import { VenueService } from './../venue.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +11,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class VenueDetailsComponent implements OnInit {
   v: Venue;
-  vf: VenueFacility[] = [];
+  //vf: VenueFacility[] = [];
 
   message = '';
 
@@ -23,9 +22,14 @@ export class VenueDetailsComponent implements OnInit {
   onPageLoad() {
     this.service.getVenueId(this.v).subscribe(
       (data) => {
-        console.log('in venue details ' + data.cityId);
+        //console.log('in venue details ' + data.cityId);
         this.v = data;
-        console.log(data + ' in data');
+
+        console.log(
+          this.v.venueFacilities[0].charges +
+            ' charges ' +
+            this.v.venueFacilities[0].facilityId.facilityName
+        );
       },
       (error) => {
         console.log(error);

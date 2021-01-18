@@ -1,7 +1,5 @@
 import { Facility } from './../facility/facility.model';
 
-
-
 // "venueFacilities": [
 //     {
 //         "venueFacilityId": 2,
@@ -31,7 +29,7 @@ import { Facility } from './../facility/facility.model';
 //         "charges": 12000.0
 //     }
 // ]
-export class VenueFacility {
+export class VenueFacilities {
   venueFacilityId: number;
   bookings: any[];
   facilityId: Facility;

@@ -1,21 +1,17 @@
-import { VenueFacility } from './venueFacilities.model';
+import { VenueFacilities } from './venueFacilities.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-const baseUrl='http://localhost:8080/admin/venueFacilities'
+const baseUrl = 'http://localhost:8080/admin/venueFacilities';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VenueFacilitiesService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { 
-
-     
-  }
-  
-  getVenueFacilities():Observable<any>{
-    return this.http.get<VenueFacility[]>(baseUrl)
+  getVenueFacilities(): Observable<any> {
+    return this.http.get<VenueFacilities[]>(baseUrl);
   }
 }

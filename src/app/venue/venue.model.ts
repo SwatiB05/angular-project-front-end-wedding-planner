@@ -1,4 +1,4 @@
-import { VenueFacility } from './../venue-facilities/venueFacilities.model';
+import { VenueFacilities } from './../venue-facilities/venueFacilities.model';
 
 // export class Venue{
 //     constructor(public venueId:number,
@@ -18,7 +18,7 @@ export interface Venue {
   venueName: string;
   venueAddress: string;
   cityId: number;
-  facilities: VenueFacility;
+  venueFacilities: VenueFacilities;
   phoneNo: string;
   email: string;
   image: string;
