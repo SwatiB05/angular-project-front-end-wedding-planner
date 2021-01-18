@@ -1,6 +1,6 @@
 import { Cities } from './../city/city.model';
 
-import {SupplierServices} from './../supplier-services/supplierService.model'
+import { SupplierServices } from './../supplier-services/supplierService.model';
 
 // export class Suppliers{
 //     constructor (public supplierId:number,
@@ -14,18 +14,18 @@ import {SupplierServices} from './../supplier-services/supplierService.model'
 //          public isActive:number,
 //          public supplier_Services:SupplierServices){}
 
-
-export class Suppliers{
-    supplierId?:number|null;
-    firstName:string;
-    lastName:string;
-    supplierAddress:string;
-    phoneNo:string;
-    scityId:Cities;
-    email:string;
-    password :string;
-    isActive:number;
-    AccountCreationDate: Date;
+export class Suppliers {
+  supplierId?: number | null;
+  firstName: string;
+  lastName: string;
+  supplierAddress: string;
+  phoneNo: string;
+  scityId: Cities;
+  email: string;
+  password: string;
+  isActive: number;
+  status: number;
+  AccountCreationDate?: Date;
 }
 
 // export class Suppliers{

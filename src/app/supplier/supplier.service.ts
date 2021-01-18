@@ -34,6 +34,9 @@ updateSupplier(c:Suppliers):Observable<Object>{
   return this.http.put(`${baseUrl}/${c.supplierId}`,c,{responseType: 'text'})
 }
 
+updateSupplierStatus(s: number) {
+  return this.http.put(`${baseUrl}/status/${s}`, s, { responseType: 'text' });
+}
 createSupplier(c:Suppliers){
   return this.http.post<Suppliers>(`${baseUrl}/create`,c,{ responseType: 'text' as 'json'  })
 }

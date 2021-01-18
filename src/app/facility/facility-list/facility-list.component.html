@@ -3,29 +3,35 @@
         <h2>Facility List</h2>
     </div>
     <div class="card-body">
-        <button (click)="onAdd()" style="margin-bottom: 20px;" class="btn btn-success float-right">Add</button>
-        <h5 *ngIf="facilities?.length==0"> &nbsp; There is no Facility at the moment. Please add one using 'Add' button.</h5>
-        <table *ngIf="facilities?.length>0" class="table table-striped table-hover">
+        <button (click)="onAdd()" style="margin-bottom: 20px" class="btn btn-success float-right">
+      Add
+    </button>
+        <h5 *ngIf="facilities?.length == 0">
+            &nbsp; There is no Facility at the moment. Please add one using 'Add' button.
+        </h5>
+        <table *ngIf="facilities?.length > 0" class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th style="width: 50px;">No</th>
+                    <th style="width: 50px">No</th>
                     <th>Title</th>
-                    <th style="width: 150px;">Actions</th>
+                    <th style="width: 150px">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let facility of facilities; let i=index">
-                    <td>{{i + 1}}</td>
-                    <td>{{facility.facilityName |uppercase}}</td>
+                <tr *ngFor="let facility of facilities; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ facility.facilityName | uppercase }}</td>
                     <td>
-                        <button (click)="onEdit(facility)" class="btn btn-warning btn-sm">Edit</button>
-                        <button (click)="onDelete(facility.facilityId)" style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
+                        <button (click)="onEdit(facility)" class="btn btn-warning btn-sm">
+              Edit
+            </button>
+                        <button (click)="onDelete(facility.facilityId)" style="margin-left: 10px" class="btn btn-danger btn-sm">
+              Delete
+            </button>
                     </td>
                 </tr>
             </tbody>
         </table>
-
-
     </div>
     <!-- <div class="card-footer"></div> -->
 </div>

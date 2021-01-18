@@ -1,4 +1,5 @@
-import { FacilityId } from './../facility/facility.model';
+import { Facility } from './../facility/facility.model';
+;
 import { BookingService } from './../booking/booking.service';
 import { Venue } from './../venue/venue.model';
 import { VenueService } from './../venue/venue.service';
@@ -34,7 +35,7 @@ books:Bookings[]=[]
 numbook:number
 servs:Services[]=[]
 numserv:number
-facs:FacilityId[]=[]
+facs:Facility[]=[]
 numfac:number
 
   constructor(private cities:CityService,

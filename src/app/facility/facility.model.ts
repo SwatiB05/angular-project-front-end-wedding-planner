@@ -1,4 +1,4 @@
-export class FacilityId {
-   facilityId: number;
-   facilityName: string;
+export class Facility {
+  facilityId?: number;
+  facilityName: string;
 }

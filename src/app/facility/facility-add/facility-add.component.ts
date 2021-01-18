@@ -1,4 +1,4 @@
-import { FacilityId } from './../facility.model';
+import { Facility } from './../facility.model';
 
 import { FacilityService } from './../facility.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./facility-add.component.css'],
 })
 export class FacilityAddComponent implements OnInit {
-  facility: FacilityId;
+  facility: Facility = new Facility();
   message = '';
 
   constructor(
@@ -29,11 +29,11 @@ export class FacilityAddComponent implements OnInit {
     } else {
       this.service.createFacility(this.facility).subscribe(
         (response) => {
-          this.toastr.success('Facility Added SuccessFully');
+          this.toastr.success('City Added SuccessFully');
           this.modal.dismiss('ok');
         },
         (error) => {
-          this.toastr.error('Cannot add Duplicate Facility');
+          this.toastr.error('Cannot add Duplicate City');
         }
       );
     }
