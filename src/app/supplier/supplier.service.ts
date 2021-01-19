@@ -53,4 +53,11 @@ export class SupplierService {
       responseType: 'text' as 'json',
     });
   }
+
+  getSupplierDetail(): Observable<Suppliers> {
+    let id = parseInt(sessionStorage.getItem('id'));
+    console.log(typeof id);
+    console.log(id);
+    return this.http.get<Suppliers>(`${supUrl}/${id}`);
+  }
 }

@@ -10,4 +10,5 @@ export class HomeComponent implements OnInit {
   constructor(public loginService: LoginService) {}
 
   ngOnInit(): void {}
+   id = sessionStorage.getItem('id');
 }

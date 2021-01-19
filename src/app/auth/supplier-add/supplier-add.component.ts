@@ -1,9 +1,11 @@
+import { SupplierService } from './../../supplier/supplier.service';
+import { Suppliers } from './../../supplier/supplier.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CityService } from 'src/app/city/city.service';
-import { SupplierService } from './../supplier.service';
+
 import { Cities } from 'src/app/city/city.model';
-import { Suppliers } from './../supplier.model';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

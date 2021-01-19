@@ -23,7 +23,10 @@ export class CustomerService {
   }
 
   //customers
-  getCustomerDetail(id: number): Observable<Customers> {
+  getCustomerDetail(): Observable<Customers> {
+    let id = parseInt(sessionStorage.getItem('id'));
+    console.log(typeof id);
+    console.log(id);
     return this.http.get<Customers>(custUrl + '/' + id);
   }
 
@@ -33,13 +36,13 @@ export class CustomerService {
     });
   }
 
-  createCustomer(c: Customers):Observable<Customers>{
+  createCustomer(c: Customers): Observable<Customers> {
     return this.http.post<Customers>(custUrl + '/create', c, {
       responseType: 'text' as 'json',
     });
   }
 
-  customerLogin(email: string, pass: string):Observable<any> {
+  customerLogin(email: string, pass: string): Observable<any> {
     this.customer.email = email;
     this.customer.password = pass;
 
