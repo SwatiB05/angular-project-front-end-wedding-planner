@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" >
@@ -14,8 +14,11 @@
                 <div>Address: {{ v.venueAddress }}</div>
                 <div>Guest Capacity: {{ v.guestCapacity }}</div>
                 <div>Contact no: {{ v.phoneNo }}</div>
-                <div *ngFor="let vf of v.venueFacilities">Facility: {{ vf.facilityId.facilityName }} 
-                    Charges: {{ vf.charges }}</div>
+                <div>Facility:</div>
+                <tr *ngFor="let vf of v.venueFacilities">
+                    <td>{{ vf.facilityId.facilityName }} </td>
+                    <td>{{ vf.charges }}</td> 
+                </tr> 
                 <div class="modal-footer">
                     <button (click)="onCancel()" type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
@@ -24,4 +27,35 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+
+<div id="myngModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title"> {{ v.venueName.toUpperCase() }}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-body" >
+                <div>{{ v.description }}</div>
+                <div>Address: {{ v.venueAddress }}</div>
+                <div>Guest Capacity: {{ v.guestCapacity }}</div>
+                <div>Contact no: {{ v.phoneNo }}</div>
+                <div>Facilities:</div>
+                <div *ngFor="let vf of v.venueFacilities">
+                    {{ vf.facilityId.facilityName }} 
+                    {{ vf.charges }}
+                </div> 
+        <div class="modal-footer">
+          <button (click)="onCancel()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>

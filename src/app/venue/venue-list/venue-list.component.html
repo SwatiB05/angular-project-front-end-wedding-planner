@@ -50,8 +50,8 @@
       <h4 class="card-title">{{venue.venueName |uppercase}}</h4>
       
       <p class="card-text">{{venue.description}}</p>
-      <button (click)="onload(venue)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-        More Details
+      <button  class="btn btn-primary" (click)="onload(venue)">
+          More Details
       </button>
       <button style="margin-left: 10px;" (click)="onEdit(venue)" class="btn btn-warning ">Edit</button>
     
