@@ -47,12 +47,21 @@
         </li>
         <li class="nav-item">
           <a
+            *ngIf="loginService.isCustomer"
+            class="nav-link"
+            routerLink="/home/supplierService"
+            >Suppliers</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
             *ngIf="loginService.isSupplier"
             class="nav-link"
             routerLink="/home/suppliers/id"
             >Profile</a
           >
         </li>
+        
         <li class="nav-item">
           <a class="nav-link" routerLink="/home/welcomepage/contactus"
             >Contact Us</a
