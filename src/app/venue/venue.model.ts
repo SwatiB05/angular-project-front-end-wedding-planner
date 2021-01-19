@@ -18,7 +18,7 @@ export interface Venue {
   venueName: string;
   venueAddress: string;
   cityId: number;
-  venueFacilities: VenueFacilities;
+  venueFacilities: VenueFacilities[];
   phoneNo: string;
   email: string;
   image: string;

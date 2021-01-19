@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginService } from './auth/login/login.service';
@@ -30,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),BrowserModule,CommonModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

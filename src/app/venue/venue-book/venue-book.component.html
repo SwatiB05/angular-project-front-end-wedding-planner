@@ -1,0 +1,55 @@
+<!-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Booking Details
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <div class="modal-body" >
+                <div>Name: {{ v.venueName }}</div>
+                <div>Address: {{ v.venueAddress }}</div>
+                <div>Guest Capacity: {{ v.guestCapacity }}</div>
+                <div>Contact no: {{ v.phoneNo }}</div>
+                <div *ngFor="let vf of v.venueFacilities">Facility: {{ vf.facilityId.facilityName }} 
+                    Charges: {{ vf.charges }}</div>
+                <div>TotalBill: {{totalBill}}</div>
+                <div class="modal-footer">
+                    <button (click)="onCancel()" type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Booking details</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div>Name: {{ v.venueName }}</div>
+            <div>Address: {{ v.venueAddress }}</div>
+            <div>Guest Capacity: {{ v.guestCapacity }}</div>
+            <div>Contact no: {{ v.phoneNo }}</div>
+            <div *ngFor="let vf of v.venueFacilities">Facility: {{ vf.facilityId.facilityName }} 
+                Charges: {{ vf.charges |currency:'INR':'symbol'}}</div>
+            <div>TotalBill: {{totalBill|currency:'INR':'symbol'}}</div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="onCancel()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
