@@ -33,7 +33,7 @@ export class CustomerService {
     });
   }
 
-  createCustomer(c: Customers) {
+  createCustomer(c: Customers):Observable<Customers>{
     return this.http.post<Customers>(custUrl + '/create', c, {
       responseType: 'text' as 'json',
     });

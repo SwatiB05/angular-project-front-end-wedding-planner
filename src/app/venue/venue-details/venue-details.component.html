@@ -14,9 +14,10 @@
                 <div>Address: {{ v.venueAddress }}</div>
                 <div>Guest Capacity: {{ v.guestCapacity }}</div>
                 <div>Contact no: {{ v.phoneNo }}</div>
-                <div>Facilities: Charges</div>
+
+                <!-- <div>Facilities: Charges</div> -->
                 <div>
-                    {{ v.venueFacilities[0].charges }} {{ v.venueFacilities[0].facilityId.facilityName }}
+                    Facilities: {{ v.venueFacilities[0].charges }} Charges:{{ v.venueFacilities[0].facilityId.facilityName }}
                 </div>
                 <div class="modal-footer">
                     <button (click)="onCancel()" type="button" class="btn btn-secondary" data-dismiss="modal">

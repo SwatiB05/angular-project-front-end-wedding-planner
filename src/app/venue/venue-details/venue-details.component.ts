@@ -24,12 +24,7 @@ export class VenueDetailsComponent implements OnInit {
       (data) => {
         //console.log('in venue details ' + data.cityId);
         this.v = data;
-
-        console.log(
-          this.v.venueFacilities[0].charges +
-            ' charges ' +
-            this.v.venueFacilities[0].facilityId.facilityName
-        );
+        console.log(this.v);
       },
       (error) => {
         console.log(error);

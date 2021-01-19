@@ -6,7 +6,7 @@
 
 export class Admin {
   adminId?: number;
-  firstName: string;
+  firstName?: string;
   lastName?: string;
   phoneNo?: string;
   email: string;

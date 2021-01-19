@@ -1,74 +1,54 @@
-import { Router } from '@angular/router';
-import { AdminService } from './../../admin/admin.service';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+} from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Admin } from 'src/app/admin/admin.model';
 import { ToastrService } from 'ngx-toastr';
-
+import * as CryptoJS from 'crypto-js';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class LoginService {
+export class LoginService implements CanActivate {
+  encryptSecretKey: number = 569345;
+  token: string;
 
-  admin:Admin=new Admin()
-  email:string
-  password:string
-  user: object = [
-    { id: 1, user: 'Admin' },
-    { id: 2, user: 'Customer' },
-    { id: 3, user: 'Supplier' },
-  ];
-  selected:number
-  invalidLogin = false
+  isAdmin: boolean = false;
+  isCustomer: boolean = false;
+  isSupplier: boolean = false;
+  constructor(private router: Router, private toastr: ToastrService) {}
 
-  constructor(private adminser:AdminService,
-    private router:Router,
-    private toastr: ToastrService,) { }
+  authenticate(data: string) {
+    this.token = CryptoJS.AES.encrypt(
+      data,
+      this.encryptSecretKey.toString()
+    ).toString();
 
-authenticate(email,password){
-  // if (email === "javainuse" && password === "password") {
-  //   console.log("in auth")
-  //   sessionStorage.setItem('email', email)
-  //   return true;
-  // } else {
-  //   return false;
-  // }
-
-if(this.selected==1) {
-  this.adminser.adminLogin(this.email,this.password).subscribe((res) => {
-    this.admin = res;
-    console.log("inauth"+res)
-    this.invalidLogin=false
-    sessionStorage.setItem('email', email)
-    this.toastr.success('Welcome Back ');
-      return true;
-    } ); 
-    console.log(
-      this.admin.firstName +
-        '   ' +
-        typeof this.admin +
-        '   ' +
-        typeof this.admin.firstName
-    );
-    
+    sessionStorage.setItem('token', this.token);
   }
-  else {
-    this.invalidLogin=true;
-        (error) => {
-          console.log(error);
-          this.toastr.error('Please Check Credentials');
-        };
+
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('token');
+    // console.log(!(user === null));
+    return !(user === null);
+  }
+
+  logOut() {
+    this.isAdmin = false;
+    this.isCustomer = false;
+    this.isSupplier = false;
+    sessionStorage.removeItem('token');
+    this.router.navigate(['auth/login']);
+    this.toastr.success('You have Log Out');
+  }
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.isUserLoggedIn()) return true;
+    this.toastr.warning('Please Login');
+    this.router.navigate(['home/welcomepage/home']);
+
     return false;
   }
-}
-      
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
-  }
-
-  // logOut() {
-  //   sessionStorage.removeItem('username')
-  // }
 }
