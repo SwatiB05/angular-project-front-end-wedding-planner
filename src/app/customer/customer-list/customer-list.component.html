@@ -29,7 +29,7 @@
                     <td>{{c.DateOfCreation}}</td>
                     <td>{{c.ccityId.city|titlecase}}</td>
                     <td>
-                        <button (click)="onEdit(c.customerId)" class="btn btn-warning btn-sm">Edit</button>
+                        <!-- <button (click)="onEdit(c.customerId)" class="btn btn-warning btn-sm">Edit</button> -->
                         <button (click)="updateStatus(c.customerId)" *ngIf="c.isActive == 1" class="btn btn-sm btn-danger">Suspend</button>
                         <button (click)="updateStatus(c.customerId)" *ngIf="c.isActive == 0" class="btn btn-sm btn-success">Activate</button>
                     </td>

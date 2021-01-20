@@ -1,3 +1,4 @@
+import { Cities } from './../city/city.model';
 import { VenueFacilities } from './../venue-facilities/venueFacilities.model';
 
 // export class Venue{
@@ -13,15 +14,15 @@ import { VenueFacilities } from './../venue-facilities/venueFacilities.model';
 //         ){}
 // }
 
-export interface Venue {
-  venueId?: number | null;
-  venueName: string;
-  venueAddress: string;
-  cityId: number;
-  venueFacilities: VenueFacilities[];
-  phoneNo: string;
-  email: string;
-  image: string;
-  guestCapacity: number;
-  description: string;
+export class Venue {
+  venueId?: number;
+  venueName?: string | null;
+  venueAddress?: string | null;
+  vcityId?: Cities;
+  venueFacilities?: VenueFacilities[] | null;
+  phoneNo?: string | null;
+  email?: string | null;
+  image?: string | null;
+  guestCapacity?: number | null;
+  description?: string | null;
 }

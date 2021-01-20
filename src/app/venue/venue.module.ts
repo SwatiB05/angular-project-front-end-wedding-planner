@@ -18,6 +18,7 @@ import { VenueBookComponent } from './venue-book/venue-book.component';
     VenueListComponent,
     VenueEditComponent,
     VenueBookComponent,
+    VenueDetailsComponent
   ],
   imports: [CommonModule, VenueRoutingModule, FormsModule, RouterModule],
   providers: [VenueService],

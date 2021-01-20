@@ -36,9 +36,9 @@ customers=[]
 
 
 
-  onEdit(c:number){
-    this.router.navigate(['home/customers',c])
-  }
+  // onEdit(c:number){
+  //   this.router.navigate(['home/customers',c])
+  // }
 
 
   updateStatus(id){

@@ -30,8 +30,8 @@ import { Facility } from './../facility/facility.model';
 //     }
 // ]
 export class VenueFacilities {
-  venueFacilityId: number;
-  bookings: any[];
-  facilityId: Facility;
-  charges: number;
+  venueFacilityId?: number;
+  bookings?: any[];
+  facilityId?: Facility;
+  charges?: number;
 }

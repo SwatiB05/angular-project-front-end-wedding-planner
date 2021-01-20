@@ -1,9 +1,8 @@
 import { Venue } from './../venue.model';
 import { VenueService } from './../venue.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-
 @Component({
   selector: 'app-venue-details',
   templateUrl: './venue-details.component.html',

@@ -66,7 +66,7 @@ export class FacilityListComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        this.toastr.error('Error While Deleting..');
+        this.toastr.warning('Facility is Associated with Other');
       }
     );
   }

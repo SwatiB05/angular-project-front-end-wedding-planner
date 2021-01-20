@@ -15,7 +15,7 @@ export class SupplierListComponent implements OnInit {
   message = '';
   constructor(
     private service: SupplierService,
-    private modalService: NgbModal,
+    // private modalService: NgbModal,
     private toastr: ToastrService
   ) {}
 
@@ -35,17 +35,17 @@ export class SupplierListComponent implements OnInit {
     );
   }
 
-  onEdit(supplier: Suppliers) {
-    const modalRef = this.modalService.open(SupplierEditComponent);
-    // get the edit comopnent's reference
-    const component = modalRef.componentInstance as SupplierEditComponent;
-    // pre-fill the title and description
-    component.c = supplier;
-    modalRef.result.finally(() => {
-      // reload the categories
-      this.onPageLoad();
-    });
-  }
+  // onEdit(supplier: Suppliers) {
+  //   const modalRef = this.modalService.open(SupplierEditComponent);
+  //   // get the edit comopnent's reference
+  //   const component = modalRef.componentInstance as SupplierEditComponent;
+  //   // pre-fill the title and description
+  //   component.c = supplier;
+  //   modalRef.result.finally(() => {
+  //     // reload the categories
+  //     this.onPageLoad();
+  //   });
+  // }
   updateStatus(id) {
     this.service.updateSupplierStatus(id).subscribe(
       (res) => {
