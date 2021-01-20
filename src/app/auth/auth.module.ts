@@ -1,17 +1,16 @@
+import { FormsModule } from '@angular/forms';
+import { SupplierAddComponent } from './supplier-add/supplier-add.component';
+import { CustomerAddComponent } from './customer-add/customer-add.component';
 import { AuthService } from './auth.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { SignupComponent } from './signup/signup.component';
-
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
-  declarations: [SignupComponent],
-  imports: [
-    CommonModule,
-    AuthRoutingModule
-  ],
-  providers:[AuthService]
+  declarations: [LogoutComponent, CustomerAddComponent, SupplierAddComponent],
+  imports: [CommonModule, AuthRoutingModule, FormsModule],
+  providers: [AuthService],
 })
-export class AuthModule { }
+export class AuthModule {}

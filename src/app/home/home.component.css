@@ -1,48 +1,52 @@
 .bg-img {
     /* The image used */
     height: 100vh;
-  min-height: 500px;
-    background-image:url(./image/decor2.jpg);
-  
-    
+    min-height: 500px;
+    background-image: url(../../assets/image/decor2.jpg);
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
-    background-size:100% ;
-  
+    background-size: 100%;
     /* Needed to position the navbar */
     position: relative;
-  }
-  
-  /* Position the navbar container inside the image */
-  .container {
+}
+
+
+/* Position the navbar container inside the image */
+
+.container {
     position: absolute;
     margin: 20px;
     width: auto;
     height: 100%;
-  }
-  
-  /* The navbar */
-  .topnav {
+}
+
+
+/* The navbar */
+
+.topnav {
     overflow: hidden;
     background-color: palevioletred;
-  }
-  
-  /* Navbar links */
-  .topnav a {
+}
+
+
+/* Navbar links */
+
+.topnav a {
     float: left;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: blueviolet;
     font-size: 17px;
-  }
-  
-  .topnav a:hover {
+}
+
+.topnav a:hover {
     background-color: white;
     color: black;
-  }
-  body, html {
+}
+
+body,
+html {
     height: 100%;
-  }
-  
+}

@@ -1,10 +1,11 @@
+import { CustomerService } from './../../customer/customer.service';
+import { Customers } from './../../customer/customer.model';
 import { Cities } from './../../city/city.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { CityService } from './../../city/city.service';
-import { Customers } from './../customer.model';
+
 import { Component, OnInit } from '@angular/core';
-import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customer-add',

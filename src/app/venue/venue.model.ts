@@ -13,7 +13,7 @@ import { VenueFacilities } from './../venue-facilities/venueFacilities.model';
 //         ){}
 // }
 
-export interface Venue {
+export class Venue {
   venueId?: number | null;
   venueName: string;
   venueAddress: string;

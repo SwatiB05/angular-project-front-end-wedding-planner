@@ -39,6 +39,7 @@
     </div>
     <!-- <div class="card-footer"></div> -->
 <!-- </div> -->
+<!-- <<<<<<< HEAD
 <div >
     <button (click)="onAdd()" style="margin-bottom: 20px;" class="btn btn-success float-right">Add</button>
 <div class="card-deck">
@@ -63,8 +64,69 @@
       <div class="stats">
            <i class="far fa-eye"></i> {{venue.email}}
         
+      </div> -->
+
+<div style="margin-top: 30px">
+  <button
+    *ngIf="loginService.isAdmin"
+    (click)="onAdd()"
+    style="margin-bottom: 20px"
+    class="btn btn-success float-right"
+  >
+    Add
+  </button>
+  <div class="card-deck">
+    <div class="card" *ngFor="let venue of venues; let i = index">
+      <img
+        class="card-img"
+        src="/assets/image/{{ venue.image }}.jpg"
+        alt="Bologna"
+      />
+
+      <div class="card-body">
+        <h4 class="card-title">{{ venue.venueName | uppercase }}</h4>
+
+        <p class="card-text">{{ venue.description }}</p>
+        <!-- <button (click)="onload(venue)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          More Details
+        </button> -->
+                <button
+                type="button"
+                (click)="onload(venue)"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#myModal"
+              >
+                More Details
+              </button>
+              
+                  <button style="margin-top: 30px;"
+                    *ngIf="loginService.isAdmin"
+                    style="margin-left: 10px"
+                    (click)="onEdit(venue)"
+                    class="btn btn-warning"
+                  >
+                    Edit
+                  </button>
+      
+                  <button
+                    *ngIf="loginService.isCustomer"
+                    style="margin-top: 20px"
+                    type="button "
+                    (click)="onVenueBook(venue)"
+                    class="btn btn-info btn-sm"
+                    data-toggle="modal "
+                    data-target="#myBookModal "
+                  >
+                    Book venue
+                  </button>
+            </div>
+      <div
+        class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0"
+      >
+        <div class="views">{{ venue.vcityId.city }}</div>
+        <div class="stats"><i class="far fa-eye"></i> {{ venue.email }}</div>
       </div>
-    </div>
   </div>
 </div>
-  </div>
+    

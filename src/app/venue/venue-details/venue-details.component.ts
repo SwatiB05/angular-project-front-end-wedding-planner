@@ -1,8 +1,9 @@
 import { Venue } from './../venue.model';
 import { VenueService } from './../venue.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-venue-details',
@@ -24,12 +25,7 @@ export class VenueDetailsComponent implements OnInit {
       (data) => {
         //console.log('in venue details ' + data.cityId);
         this.v = data;
-
-        console.log(
-          this.v.venueFacilities[0].charges +
-            ' charges ' +
-            this.v.venueFacilities[0].facilityId.facilityName
-        );
+        console.log(this.v);
       },
       (error) => {
         console.log(error);

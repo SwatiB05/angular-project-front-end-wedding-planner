@@ -1,8 +1,9 @@
 import { VenueFacilities } from './../../venue-facilities/venueFacilities.model';
 import { Venue } from './../venue.model';
 import { VenueService } from './../venue.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @Component({
@@ -21,7 +22,7 @@ totalBill:number=0;
 
 
   ngOnInit(): void {
-    this.onBook()
+    
   }
 
   onBook() {
@@ -35,7 +36,7 @@ totalBill:number=0;
        for(let i =0;i<venuefac;i++){
         console.log("in for"+this.totalBill)
         this.totalBill=this.totalBill+this.v.venueFacilities[i].charges
-        console.log(this.totalBill)
+        console.log("total"+this.totalBill)
        }
        
 

@@ -1,3 +1,4 @@
+import { LoginService } from './../../auth/login/login.service';
 import { VenueBookComponent } from './../venue-book/venue-book.component';
 import { VenueDetailsComponent } from './../venue-details/venue-details.component';
 import { VenueEditComponent } from './../venue-edit/venue-edit.component';
@@ -7,6 +8,7 @@ import { Venue } from './../venue.model';
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-venue-list',
@@ -19,7 +21,8 @@ export class VenueListComponent implements OnInit {
   constructor(
     private service: VenueService,
     private modalService: NgbModal,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    public loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +51,7 @@ export class VenueListComponent implements OnInit {
     });
   }
 
-  onVenueBook(venue:Venue){
+  onVenueBook(venue: Venue) {
     const modalref = this.modalService.open(VenueBookComponent);
     const component = modalref.componentInstance as VenueBookComponent;
     // pre-fill the title and description

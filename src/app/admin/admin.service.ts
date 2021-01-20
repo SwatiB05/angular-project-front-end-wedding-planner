@@ -1,7 +1,6 @@
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Login } from '../auth/login/login.model';
 import { Admin } from './admin.model';
 
 @Injectable({
@@ -13,10 +12,10 @@ export class AdminService {
 
   constructor(private http: HttpClient) {}
 
-  adminLogin(email: string, pass: string): Observable<any> {
+  adminLogin(email: string, pass: string):Observable<any> {
     this.admin.email = email;
     this.admin.password = pass;
-    console.log("in admin")
+    console.log('in admin');
 
     return this.http.post<Admin>(this.baseUrl, this.admin, {
       responseType: 'text' as 'json',

@@ -1,14 +1,14 @@
-import { Facility } from './../facility/facility.model';
+import { Facility } from '../facility/facility.model';
 ;
-import { BookingService } from './../booking/booking.service';
-import { Venue } from './../venue/venue.model';
-import { VenueService } from './../venue/venue.service';
-import { Suppliers } from './../supplier/supplier.model';
-import { SupplierService } from './../supplier/supplier.service';
-import { CustomerService } from './../customer/customer.service';
-import { CityService } from './../city/city.service';
+import { BookingService } from '../booking/booking.service';
+import { Venue } from '../venue/venue.model';
+import { VenueService } from '../venue/venue.service';
+import { Suppliers } from '../supplier/supplier.model';
+import { SupplierService } from '../supplier/supplier.service';
+import { CustomerService } from '../customer/customer.service';
+import { CityService } from '../city/city.service';
 
-import { Cities } from './../city/city.model';
+import { Cities } from '../city/city.model';
 
 import { Component, OnInit } from '@angular/core';
 import { Customers } from '../customer/customer.model';

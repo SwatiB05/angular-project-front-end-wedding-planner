@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Cities } from 'src/app/city/city.model';
 import { CityService } from 'src/app/city/city.service';
 import { Suppliers } from './../supplier.model';
@@ -15,15 +16,21 @@ export class SupplierEditComponent implements OnInit {
   city1: number;
   city: Cities[] = [];
   c: Suppliers = new Suppliers();
+  id;
   constructor(
-    private modal: NgbActiveModal,
+    // private modal: NgbActiveModal,
     private service: SupplierService,
     private toastr: ToastrService,
-    private citySer: CityService
+    private citySer: CityService // private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    // this.id = this.route.snapshot.params['id'];
+    // console.log(this.id);
+    this.id = sessionStorage.getItem('id');
+
     this.loadCity();
+    this.loadSupplier();
   }
 
   loadCity() {
@@ -31,6 +38,17 @@ export class SupplierEditComponent implements OnInit {
       (data) => {
         this.city = data;
         console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  loadSupplier() {
+   
+    this.service.getSupplierDetail().subscribe(
+      (data) => {
+        (this.c = data), console.log(data);
       },
       (error) => {
         console.log(error);
@@ -50,8 +68,7 @@ export class SupplierEditComponent implements OnInit {
         (res) => {
           console.log(res);
           this.toastr.success('SuccessFully Updated');
-          this.modal.dismiss('ok');
-      
+          //  this.modal.dismiss('ok');
         },
         (error) => {
           this.toastr.error('City Invalid');
@@ -60,7 +77,7 @@ export class SupplierEditComponent implements OnInit {
     }
   }
 
-  onCancel() {
-    this.modal.dismiss('cancel');
-  }
+  // onCancel() {
+  //   this.modal.dismiss('cancel');
+  // }
 }
