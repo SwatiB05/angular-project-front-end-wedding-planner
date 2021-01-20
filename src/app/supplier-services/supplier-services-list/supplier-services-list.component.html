@@ -1,1 +1,65 @@
-<p>supplier-services-list works!</p>
+<div class="card">
+    <div class="card-header">
+        <h2>Supplier List</h2>
+    </div>
+    <div class="card-body">
+        <h5 *ngIf="!supplierServices.length">
+            &nbsp; You have Booked All Suppliers.
+        </h5>
+        <table *ngIf="supplierServices.length > 0" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th style="width: 50px">No</th>
+                    <th>Supplier Name</th>
+                    <th>Service</th>
+                    <th>Charges</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of supplierServices; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ x.supplierId.firstName }} {{ x.supplierId.lastName }}</td>
+                    <td>{{ x.serviceId.serviceName }}</td>
+                    <td>{{ x.charges | currency: "INR":"symbol" }}</td>
+                    <td>
+                        <button (click)="addSupplier(x)" class="btn btn-sm btn-danger" style="margin-right: 10px">
+              Add
+            </button>
+                        <button (click)="removesupplier(x)" class="btn btn-sm btn-success">
+              Remove
+            </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <table *ngIf="newTable.length" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th style="width: 50px">No</th>
+                        <th>Supplier Name</th>
+                        <th>Service</th>
+                        <th>Charges</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let x of newTable; let i = index">
+                        <td>{{ i + 1 }}</td>
+                        <td>{{ x.supplierId.firstName }} {{ x.supplierId.lastName }}</td>
+                        <td>{{ x.serviceId.serviceName }}</td>
+                        <td>{{ x.charges | currency: "INR":"symbol" }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <td colspan="3" style="text-align: right; font-weight: 600">
+                        Total Price
+                    </td>
+                    <td>
+                        <h5>₹ {{ totalPrice }}</h5>
+                    </td>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

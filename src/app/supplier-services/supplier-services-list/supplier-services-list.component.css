@@ -1,4 +1,6 @@
 input,
-select {
+select,
+td,
+div {
     text-transform: capitalize;
 }
