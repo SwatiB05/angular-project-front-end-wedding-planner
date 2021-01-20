@@ -3,30 +3,33 @@ import { Services } from './service.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const baseUrl='http://localhost:8080/admin/services'
+const baseUrl = 'http://localhost:8080/admin/services';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServiceService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
+  service: Services;
 
-  service:Services
-
-  getServices(){
-    return this.http.get<Services[]>(baseUrl)
+  getServices() {
+    return this.http.get<Services[]>(baseUrl);
   }
 
-  updateService(s:Services):Observable<Object>{
-    return this.http.put(`${baseUrl}/${s.serviceId}`,s,{responseType:'text'})
+  updateService(s: Services): Observable<Object> {
+    return this.http.put(`${baseUrl}/${s.serviceId}`, s, {
+      responseType: 'text',
+    });
   }
 
-  createService(s:Services){
-    return this.http.post(`${baseUrl}/create`,s,{responseType:'text' as 'json'})
+  createService(s: Services) {
+    return this.http.post(`${baseUrl}/create`, s, {
+      responseType: 'text' as 'json',
+    });
   }
 
-  deleteService(id:number):Observable<any>{
-    return this.http.delete(`${baseUrl}/${id}`,{responseType:'text'})
+  deleteService(id: number) {
+    return this.http.delete(`${baseUrl}/${id}`, { responseType: 'text' });
   }
 }

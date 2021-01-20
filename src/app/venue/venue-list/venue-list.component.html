@@ -1,125 +1,32 @@
-<!-- <div class="card">
-    <div class="card-header">
-        <h2>Venue List</h2>
-    </div>
-    <div class="card-body">
-        <button (click)="onAdd()" style="margin-bottom: 20px;" class="btn btn-success float-right">Add</button>
-        <h5 *ngIf="venues?.length==0"> &nbsp; There is no Facility at the moment. Please add one using 'Add' button.</h5>
-        <table *ngIf="venues?.length>0" class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th style="width: 50px;">No</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Contact No</th>
-                    <th>Email</th>
-                    <th>Guest Capacity</th>
-                    <th style="width: 150px;">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let venue of venues; let i=index">
-                    <td>{{i + 1}}</td>
-                    <td>{{venue.venueName |uppercase}}</td>
-                    <td>{{venue.venueAddress |uppercase}}</td>
-                    <td>{{venue.vcityId.city |uppercase}}</td>
-                    <td>{{venue.phoneNo |uppercase}}</td>
-                    <td>{{venue.email}}</td>
-                    <td>{{venue.guestCapacity }}</td>
-                    <td>
-                        <button (click)="onEdit(venue)" class="btn btn-warning btn-sm">Edit</button>
-                        <button (click)="onDelete(venue.venueId)" style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
 
-
-    </div>
-    <!-- <div class="card-footer"></div> -->
-<!-- </div> -->
-<!-- <<<<<<< HEAD
-<div >
-    <button (click)="onAdd()" style="margin-bottom: 20px;" class="btn btn-success float-right">Add</button>
-<div class="card-deck">
-    
-<div class="card" *ngFor="let venue of venues; let i=index">
-    <img class="card-img" src="/assets/image/{{venue.image}}.jpg" alt="Bologna">
-   
-    <div class="card-body" >
-      <h4 class="card-title">{{venue.venueName |uppercase}}</h4>
-      
-      <p class="card-text">{{venue.description}}</p>
-      <button  class="btn btn-primary" (click)="onload(venue)">
-          More Details
-      </button>
-      <button style="margin-left: 10px;" (click)="onEdit(venue)" class="btn btn-warning ">Edit</button>
-    
-      <button style="margin-top: 10px;" type="button" (click)="onVenueBook(venue)" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Book venue</button>
-    </div>
-    <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
-      <div class="views">{{venue.vcityId.city}}
-      </div>
-      <div class="stats">
-           <i class="far fa-eye"></i> {{venue.email}}
-        
-      </div> -->
 
 <div style="margin-top: 30px">
-  <button
-    *ngIf="loginService.isAdmin"
-    (click)="onAdd()"
-    style="margin-bottom: 20px"
-    class="btn btn-success float-right"
-  >
+
+    <button *ngIf="loginService.isAdmin" (click)="onAdd()" style="margin-bottom: 20px" class="btn btn-success float-right">
     Add
   </button>
-  <div class="card-deck">
-    <div class="card" *ngFor="let venue of venues; let i = index">
-      <img
-        class="card-img"
-        src="/assets/image/{{ venue.image }}.jpg"
-        alt="Bologna"
-      />
+    <div class="card-deck">
+        <div class="card" *ngFor="let venue of venues; let i = index">
+            <img class="card-img" src="/assets/image/venue{{ i + 1 }}.jpg" style="height: 200px" alt="Bologna" />
 
       <div class="card-body">
         <h4 class="card-title">{{ venue.venueName | uppercase }}</h4>
 
-        <p class="card-text">{{ venue.description }}</p>
-        <!-- <button (click)="onload(venue)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+ 
+                <p class="card-text">{{ venue.description }}</p>
+                
+                <button type="button" (click)="onload(venue)" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
           More Details
-        </button> -->
-                <button
-                type="button"
-                (click)="onload(venue)"
-                class="btn btn-primary"
-                data-toggle="modal"
-                data-target="#myModal"
-              >
-                More Details
-              </button>
-              
-                  <button style="margin-top: 30px;"
-                    *ngIf="loginService.isAdmin"
-                    style="margin-left: 10px"
-                    (click)="onEdit(venue)"
-                    class="btn btn-warning"
-                  >
-                    Edit
-                  </button>
-      
-                  <button
-                    *ngIf="loginService.isCustomer"
-                    style="margin-top: 20px"
-                    type="button "
-                    (click)="onVenueBook(venue)"
-                    class="btn btn-info btn-sm"
-                    data-toggle="modal "
-                    data-target="#myBookModal "
-                  >
-                    Book venue
-                  </button>
+        </button>
+
+                <button style="margin-top: 30px" *ngIf="loginService.isAdmin" style="margin-left: 10px" (click)="onEdit(venue)" class="btn btn-warning">
+          Edit
+        </button>
+
+                <button *ngIf="loginService.isCustomer" style="margin-top: 20px" type="button " (click)="onVenueBook(venue)" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal ">
+          Book venue
+        </button>
+       
             </div>
       <div
         class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0"

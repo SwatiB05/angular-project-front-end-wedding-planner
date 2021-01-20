@@ -31,9 +31,9 @@
                     <td>{{ s.scityId.city | titlecase }}</td>
                     <td>{{ s.AccountCreationDate }}</td>
                     <td>
-                        <button (click)="onEdit(s)" class="btn btn-warning btn-sm">
+                        <!-- <button (click)="onEdit(s)" class="btn btn-warning btn-sm">
               Edit
-            </button>
+            </button> -->
                         <button (click)="updateStatus(s.supplierId)" style="align-items: center" *ngIf="s.isActive == 1" class="btn btn-sm btn-danger">
               Suspend
             </button>

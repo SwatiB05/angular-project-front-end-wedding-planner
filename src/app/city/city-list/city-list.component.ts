@@ -65,7 +65,7 @@ export class CityListComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        this.toastr.error('Error While Deleting..');
+        this.toastr.warning('City is Associated with Other');
       }
     );
   }
