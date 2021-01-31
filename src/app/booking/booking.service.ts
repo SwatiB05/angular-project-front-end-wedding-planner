@@ -4,17 +4,16 @@ import { Observable } from 'rxjs';
 import { Bookings } from './booking.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookingService {
+  b: Bookings = new Bookings();
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient ) {}
-
-
-  url:string="http://localhost:8080/admin/bookings"
-
-  getAllBookings():Observable<Bookings[]>{
-return this.http.get<Bookings[]>(this.url);
+  url: string = 'http://localhost:8080/admin/bookings';
+  custUrl: string = 'http://localhost:8080/customers/bookings';
+  getAllBookings(): Observable<Bookings[]> {
+    return this.http.get<Bookings[]>(this.url);
   }
 
   // getBookingDetail(b):Observable<any>
@@ -22,14 +21,19 @@ return this.http.get<Bookings[]>(this.url);
   //   return this.http.get(`http://localhost:8080/customers/bookings/${b}`);
   //  // return this.http.get('http://localhost:8080/customers/bookings/'+b)
   // }
-  
 
-
-  getBookingDetail(id:number): Observable<Bookings> {
-    return this.http.get<Bookings>('http://localhost:8080/customers/bookings/' + id)
-  
+  createBooking(b: Bookings): Observable<Bookings> {
+    return this.http.post<Bookings>(this.custUrl + '/create', b, {
+      responseType: 'text' as 'json',
+    });
   }
-  deleteBooking(id:number){
-    return this.http.delete('http://localhost:8080/customers/bookings/' + id, { responseType: 'text' })
+
+  getBookingDetail(id: number): Observable<Bookings> {
+    return this.http.get<Bookings>(this.custUrl + '/' + id);
+  }
+  deleteBooking(id: number) {
+    return this.http.delete(this.custUrl + '/' + id, {
+      responseType: 'text',
+    });
   }
 }

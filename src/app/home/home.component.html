@@ -45,7 +45,7 @@
             >Venues</a
           >
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a
             *ngIf="loginService.isCustomer"
             class="nav-link"
@@ -55,13 +55,21 @@
         </li>
         <li class="nav-item">
           <a
+            *ngIf="loginService.isCustomer"
+            class="nav-link"
+            routerLink="/home/bookings/details"
+            >Bookings</a
+          >
+        </li> -->
+        <li class="nav-item">
+          <a
             *ngIf="loginService.isSupplier"
             class="nav-link"
             routerLink="/home/suppliers/id"
             >Profile</a
           >
         </li>
-        
+
         <li class="nav-item">
           <a class="nav-link" routerLink="/home/welcomepage/contactus"
             >Contact Us</a

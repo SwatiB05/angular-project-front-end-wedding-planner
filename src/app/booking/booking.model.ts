@@ -28,11 +28,10 @@ import { Cities } from './../city/city.model';
 //     constructor(public bookingName:string,public customerId:Customers,public totalAmount:number,public DateOfBooking :Date,public ccityId:Cities ){}
 // }
 
-export class Bookings{
-    bookingId?:number|null;
-    bookingName:string;
-    customerId:Customers;
-    totalAmount:number;
-    DateOfBooking:Date;
-    ccityId:Cities
+export class Bookings {
+  bookingId?: number;
+  bookingName: string;
+  customerId: Customers;
+  totalAmount: number;
+  DateOfBooking: Date;
 }

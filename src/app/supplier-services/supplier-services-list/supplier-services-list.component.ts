@@ -1,3 +1,6 @@
+import { Cities } from 'src/app/city/city.model';
+import { element } from 'protractor';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SupplierServicesService } from './../supplier-services.service';
 import { SupplierServices } from './../supplierService.model';
 
@@ -9,13 +12,22 @@ import { Component, OnInit, NgModule } from '@angular/core';
   styleUrls: ['./supplier-services-list.component.css'],
 })
 export class SupplierServicesListComponent implements OnInit {
-  constructor(private service: SupplierServicesService) {}
+  bill: number;
   supplierServices: SupplierServices[] = [];
   newTable: SupplierServices[] = [];
   totalPrice: number = 0;
 
+  constructor(
+    private service: SupplierServicesService,
+    private router: Router
+  ) {
+    this.bill = router.getCurrentNavigation().extras.state.example;
+
+  }
+
   ngOnInit(): void {
     this.onPageLoad();
+    console.log('bill' + this.bill);
   }
 
   onPageLoad() {
@@ -51,5 +63,12 @@ export class SupplierServicesListComponent implements OnInit {
       this.newTable.splice(index, 1);
     }
     this.calculateBill();
+  }
+
+  onProceed() {
+    this.bill = this.bill + this.totalPrice;
+    this.router.navigate(['home/bookings/details'], {
+      state: { example: this.bill },
+    });
   }
 }

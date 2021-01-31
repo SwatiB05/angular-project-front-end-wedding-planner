@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './../../auth/login/login.service';
 import { VenueBookComponent } from './../venue-book/venue-book.component';
 import { VenueDetailsComponent } from './../venue-details/venue-details.component';
@@ -18,11 +19,14 @@ import { NgModule } from '@angular/core';
 export class VenueListComponent implements OnInit {
   venues = [];
   message = '';
+  totalBill: number = 0;
+  v: Venue;
   constructor(
     private service: VenueService,
     private modalService: NgbModal,
     private toastr: ToastrService,
-    public loginService: LoginService
+    public loginService: LoginService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -51,15 +55,28 @@ export class VenueListComponent implements OnInit {
     });
   }
 
+  // onVenueBook(venue: Venue) {
+  //   const modalref = this.modalService.open(VenueBookComponent);
+  //   const component = modalref.componentInstance as VenueBookComponent;
+  //   // pre-fill the title and description
+  //   component.v = venue;
+  //   console.log(component.v);
+  //   modalref.result.finally(() => {
+  //     component.onBook();
+  //   });
+  // }
   onVenueBook(venue: Venue) {
-    const modalref = this.modalService.open(VenueBookComponent);
-    const component = modalref.componentInstance as VenueBookComponent;
-    // pre-fill the title and description
-    component.v = venue;
-    console.log(component.v);
-    modalref.result.finally(() => {
-      component.onBook();
-    });
+    this.v = venue;
+    var venuefac = this.v.venueFacilities.length;
+    console.log('length=' + venuefac);
+    for (let i = 0; i < venuefac; i++) {
+      console.log('in for' + this.totalBill);
+      this.totalBill = this.totalBill + this.v.venueFacilities[i].charges;
+      console.log('total=' + this.totalBill);
+      this.router.navigate(['home/supplierService'], {
+        state: { example: this.totalBill },
+      });
+    }
   }
 
   onAdd() {
